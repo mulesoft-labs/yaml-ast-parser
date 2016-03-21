@@ -12,6 +12,7 @@
   "dependencies": {
     "underscore": "^1.8.3"
   },
+  "typings":"src/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/mulesoft-labs/typesystem-ts.git"
