@@ -1,6 +1,6 @@
 {
   "name": "yaml-ast-parser",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "private": false,
   "main": "dist/index.js",
   "scripts": {
@@ -28,6 +28,7 @@
   },
   "files": [
     "dist/",
+    "typings/",
     "typings.json"
   ],
   "homepage": "https://github.com/mulesoft-labs/yaml-ast-parser",
