@@ -7,13 +7,15 @@
 'use strict';
 
 
+declare function require(n:string):any
+
 var Schema = require('../schema');
 
 
-module.exports = new Schema({
+export = new Schema({
   explicit: [
-    require('./str'),
-    require('./seq'),
-    require('./map')
+    require('../type/str'),
+    require('../type/seq'),
+    require('../type/map')
   ]
 });

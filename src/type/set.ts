@@ -28,7 +28,7 @@ function constructYamlSet(data) {
   return null !== data ? data : {};
 }
 
-module.exports = new Type('tag:yaml.org,2002:set', {
+export = new Type('tag:yaml.org,2002:set', {
   kind: 'mapping',
   resolve: resolveYamlSet,
   construct: constructYamlSet

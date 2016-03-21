@@ -11,17 +11,18 @@
 'use strict';
 
 
+declare function require(n:string):any
 var Schema = require('../schema');
 
 
-module.exports = new Schema({
+export = new Schema({
   include: [
     require('./failsafe')
   ],
   implicit: [
-    require('./null'),
-    require('./bool'),
-    require('./int'),
-    require('./float')
+    require('../type/null'),
+    require('../type/bool'),
+    require('../type/int'),
+    require('../type/float')
   ]
 });

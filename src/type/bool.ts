@@ -1,5 +1,7 @@
 /// <reference path="../../typings/main.d.ts" />
 
+declare function require(n:string):any
+
 'use strict';
 
 import Type = require('../type');
@@ -25,7 +27,7 @@ function isBoolean(object) {
   return '[object Boolean]' === Object.prototype.toString.call(object);
 }
 
-module.exports = new Type('tag:yaml.org,2002:bool', {
+export = new Type('tag:yaml.org,2002:bool', {
   kind: 'scalar',
   resolve: resolveYamlBoolean,
   construct: constructYamlBoolean,

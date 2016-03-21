@@ -164,7 +164,7 @@ function isInteger(object) {
          (0 === object % 1 && !common.isNegativeZero(object));
 }
 
-module.exports = new Type('tag:yaml.org,2002:int', {
+export = new Type('tag:yaml.org,2002:int', {
   kind: 'scalar',
   resolve: resolveYamlInteger,
   construct: constructYamlInteger,

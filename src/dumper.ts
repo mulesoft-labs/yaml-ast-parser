@@ -1,7 +1,7 @@
 /// <reference path="../typings/main.d.ts" />
 
 'use strict';
-
+declare function require(n:string):any
 /*eslint-disable no-use-before-define*/
 
 var common              = require('./common');

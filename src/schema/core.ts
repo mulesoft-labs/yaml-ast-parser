@@ -9,11 +9,12 @@
 
 'use strict';
 
+declare function require(n:string):any
 
 var Schema = require('../schema');
 
 
-module.exports = new Schema({
+export = new Schema({
   include: [
     require('./json')
   ]

@@ -56,7 +56,7 @@ function constructYamlPairs(data) {
   return result;
 }
 
-module.exports = new Type('tag:yaml.org,2002:pairs', {
+export = new Type('tag:yaml.org,2002:pairs', {
   kind: 'sequence',
   resolve: resolveYamlPairs,
   construct: constructYamlPairs

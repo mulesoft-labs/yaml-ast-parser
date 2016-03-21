@@ -91,7 +91,7 @@ function representYamlTimestamp(object /*, style*/) {
   return object.toISOString();
 }
 
-module.exports = new Type('tag:yaml.org,2002:timestamp', {
+export = new Type('tag:yaml.org,2002:timestamp', {
   kind: 'scalar',
   resolve: resolveYamlTimestamp,
   construct: constructYamlTimestamp,

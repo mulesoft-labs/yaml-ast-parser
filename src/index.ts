@@ -5,6 +5,34 @@
 
 import loader = require('./loader');
 import dumper = require('./dumper');
+import Mark=require("./mark")
+export class YAMLException {
+
+    message:string
+    reason:string
+    name:string
+    mark:Mark
+
+    constructor(reason:string, mark:Mark=null) {
+        this.name = 'YAMLException';
+        this.reason = reason;
+        this.mark = mark;
+        this.message = this.toString(false);
+    }
+
+    toString(compact:boolean=false){
+        var result;
+
+        result = 'JS-YAML: ' + (this.reason || '(unknown reason)');
+
+        if (!compact && this.mark) {
+            result += ' ' + this.mark.toString();
+        }
+
+        return result;
+
+    }
+}
 
 export enum Kind{
     SCALAR,
@@ -120,13 +148,8 @@ function deprecated(name) {
     };
 }
 
-export var Type                = require('./js-yaml/type');
-export var Schema              = require('./js-yaml/schema');
-export var DEFAULT_SAFE_SCHEMA = require('./js-yaml/schema/default_safe');
-export var DEFAULT_FULL_SCHEMA = require('./js-yaml/schema/default_full');
 export var load= loader.load;
 export var loadAll             = loader.loadAll;
 export var safeLoad            = loader.safeLoad;
 export var dump                = dumper.dump;
 export var safeDump            = dumper.safeDump;
-export var YAMLException       = require('./exception');

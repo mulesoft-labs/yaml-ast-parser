@@ -77,7 +77,7 @@ function isRegExp(object) {
   return '[object RegExp]' === Object.prototype.toString.call(object);
 }
 
-module.exports = new Type('tag:yaml.org,2002:js/regexp', {
+export = new Type('tag:yaml.org,2002:js/regexp', {
   kind: 'scalar',
   resolve: resolveJavascriptRegExp,
   construct: constructJavascriptRegExp,

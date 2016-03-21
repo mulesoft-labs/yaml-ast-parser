@@ -3,7 +3,7 @@
 'use strict';
 
 
-var common = require('./common');
+import common = require('./common');
 
 class Mark{
 

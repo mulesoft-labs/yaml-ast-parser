@@ -10,20 +10,22 @@
 'use strict';
 
 
+
+declare function require(n:string):any
 import Schema = require('../schema');
 var schema=new Schema({
   include: [
     require('./core')
   ],
   implicit: [
-    require('./timestamp'),
-    require('./merge')
+    require('../type/timestamp'),
+    require('../type/merge')
   ],
   explicit: [
-    require('./binary'),
-    require('./omap'),
-    require('./pairs'),
-    require('./set')
+    require('../type/binary'),
+    require('../type/omap'),
+    require('../type/pairs'),
+    require('../type/set')
   ]
 })
 export = schema;

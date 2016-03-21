@@ -51,7 +51,7 @@ function constructYamlOmap(data) {
   return null !== data ? data : [];
 }
 
-module.exports = new Type('tag:yaml.org,2002:omap', {
+export = new Type('tag:yaml.org,2002:omap', {
   kind: 'sequence',
   resolve: resolveYamlOmap,
   construct: constructYamlOmap

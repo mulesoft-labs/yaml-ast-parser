@@ -1,6 +1,7 @@
 /// <reference path="../../typings/main.d.ts" />
 
 'use strict';
+declare function require(n:string):any
 
 /*eslint-disable no-bitwise*/
 
@@ -127,7 +128,7 @@ function isBinary(object) {
   return NodeBuffer && NodeBuffer.isBuffer(object);
 }
 
-module.exports = new Type('tag:yaml.org,2002:binary', {
+export = new Type('tag:yaml.org,2002:binary', {
   kind: 'scalar',
   resolve: resolveYamlBinary,
   construct: constructYamlBinary,

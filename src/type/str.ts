@@ -4,7 +4,7 @@
 
 import Type = require('../type');
 
-module.exports = new Type('tag:yaml.org,2002:str', {
+export = new Type('tag:yaml.org,2002:str', {
   kind: 'scalar',
   construct: function (data) { return null !== data ? data : ''; }
 });

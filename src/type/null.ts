@@ -23,7 +23,7 @@ function isNull(object) {
   return null === object;
 }
 
-module.exports = new Type('tag:yaml.org,2002:null', {
+export = new Type('tag:yaml.org,2002:null', {
   kind: 'scalar',
   resolve: resolveYamlNull,
   construct: constructYamlNull,

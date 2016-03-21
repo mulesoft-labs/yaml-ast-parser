@@ -21,7 +21,7 @@ function isUndefined(object) {
   return 'undefined' === typeof object;
 }
 
-module.exports = new Type('tag:yaml.org,2002:js/undefined', {
+export = new Type('tag:yaml.org,2002:js/undefined', {
   kind: 'scalar',
   resolve: resolveJavascriptUndefined,
   construct: constructJavascriptUndefined,

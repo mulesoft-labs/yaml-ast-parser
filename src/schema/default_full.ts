@@ -10,7 +10,7 @@
 
 
 'use strict';
-
+declare function require(n:string):any
 
 import Schema = require('../schema');
 
@@ -19,9 +19,9 @@ var schema=new Schema({
     require('./default_safe')
   ],
   explicit: [
-    require('./js/undefined'),
-    require('./js/regexp'),
-    require('./js/function')
+    require('../type/js/undefined'),
+    require('../type/js/regexp')
+
   ]
 })
 Schema.DEFAULT = schema;

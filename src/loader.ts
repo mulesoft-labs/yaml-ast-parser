@@ -1735,7 +1735,7 @@ export function safeLoadAll(input:string, output, options) {
 export function safeLoad(input:string, options) {
   return load(input, common.extend({ schema: DEFAULT_SAFE_SCHEMA }, options));
 }
-
+declare var module:any;
 
 module.exports.loadAll     = loadAll;
 module.exports.load        = load;

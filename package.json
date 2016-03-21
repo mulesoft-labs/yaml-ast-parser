@@ -2,17 +2,17 @@
   "name": "yaml-ast-parser",
   "version": "0.0.6",
   "private": false,
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test-cov": " ./node_modules/.bin/istanbul cover _mocha tests/*Tests.js",
     "typings-for-idea": "node ./tools/createDeclarations",
-    "build": " ./node_modules/typescript/bin/tsc ",
+    "build": "rm -rf dist/ && ./node_modules/typescript/bin/tsc ",
     "build-browser": "./node_modules/.bin/webpack --entry ./src/browser.js  --output-path ./browser --output-filename bundle.js --verbose --profile --display-modules "
   },
   "dependencies": {
     "underscore": "^1.8.3"
   },
-  "typings":"src/index.d.ts",
+  "typings":"dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/mulesoft-labs/typesystem-ts.git"
@@ -26,6 +26,10 @@
     "email": "petrochenko.pavel.a@gmail.com",
     "url": "ru.linkedin.com/in/petrochenkopavel"
   },
+  "files": [
+    "dist/",
+    "typings.json"
+  ],
   "homepage": "https://github.com/mulesoft-labs/typesystem-ts",
   "license": "MIT",
   "bugs": {

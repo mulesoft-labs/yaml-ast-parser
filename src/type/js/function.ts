@@ -1,8 +1,8 @@
 /// <reference path="../../../typings/main.d.ts" />
 
 'use strict';
-
-import esprima=require("esprima");
+declare function require(N:string):any
+var esprima=require("esprima");
 
 // Browserified version does not have esprima
 //
@@ -73,7 +73,7 @@ function isFunction(object) {
   return '[object Function]' === Object.prototype.toString.call(object);
 }
 
-module.exports = new Type('tag:yaml.org,2002:js/function', {
+export = new Type('tag:yaml.org,2002:js/function', {
   kind: 'scalar',
   resolve: resolveJavascriptFunction,
   construct: constructJavascriptFunction,

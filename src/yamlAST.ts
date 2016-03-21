@@ -1,4 +1,3 @@
-/// <reference path="../../raml-labs-new/typings/main.d.ts" />
 
 /**
  * Created by kor on 06/05/15.

@@ -100,7 +100,7 @@ function isFloat(object) {
          (0 !== object % 1 || common.isNegativeZero(object));
 }
 
-module.exports = new Type('tag:yaml.org,2002:float', {
+export= new Type('tag:yaml.org,2002:float', {
   kind: 'scalar',
   resolve: resolveYamlFloat,
   construct: constructYamlFloat,
