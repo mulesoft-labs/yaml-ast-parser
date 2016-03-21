@@ -1,6 +1,6 @@
 {
   "name": "yaml-ast-parser",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "private": false,
   "main": "dist/index.js",
   "scripts": {
@@ -35,7 +35,6 @@
   "bugs": {
     "url": "https://github.com/mulesoft-labs/yaml-ast-parser/issues"
   },
-  "typings": "./src/index.d.ts",
   "devDependencies": {
     "chai": "^2.2.0",
     "chai-as-promised": "^5.2.0",
