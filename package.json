@@ -1,0 +1,47 @@
+{
+  "name": "yaml-ast-parser",
+  "version": "0.0.6",
+  "private": false,
+  "main": "src/index.js",
+  "scripts": {
+    "test-cov": " ./node_modules/.bin/istanbul cover _mocha tests/*Tests.js",
+    "typings-for-idea": "node ./tools/createDeclarations",
+    "build": " ./node_modules/typescript/bin/tsc ",
+    "build-browser": "./node_modules/.bin/webpack --entry ./src/browser.js  --output-path ./browser --output-filename bundle.js --verbose --profile --display-modules "
+  },
+  "dependencies": {
+    "underscore": "^1.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mulesoft-labs/typesystem-ts.git"
+  },
+  "keywords": [
+    "raml",
+    "ast","yaml"
+  ],
+  "author": {
+    "name": "Pavel Petrochenko",
+    "email": "petrochenko.pavel.a@gmail.com",
+    "url": "ru.linkedin.com/in/petrochenkopavel"
+  },
+  "homepage": "https://github.com/mulesoft-labs/typesystem-ts",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mulesoft-labs/typesystem-ts/issues"
+  },
+  "typings": "./src/index.d.ts",
+  "devDependencies": {
+    "chai": "^2.2.0",
+    "chai-as-promised": "^5.2.0",
+    "gulp": "^3.8.11",
+    "gulp-typedoc": "^1.2.1",
+    "istanbul": "^0.4.2",
+    "json-loader": "^0.5.1",
+    "mocha": "^2.2.1",
+    "typedoc": "^0.3.12",
+    "typescript": "1.8.7",
+    "typings": "^0.5.1",
+    "webpack": "^1.3.7"
+  }
+}
