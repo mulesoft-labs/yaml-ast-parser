@@ -1,6 +1,6 @@
 {
   "name": "yaml-ast-parser",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "private": false,
   "main": "dist/index.js",
   "scripts": {
@@ -15,7 +15,7 @@
   "typings":"dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mulesoft-labs/typesystem-ts.git"
+    "url": "https://github.com/mulesoft-labs/yaml-ast-parser.git"
   },
   "keywords": [
     "raml",
@@ -30,10 +30,10 @@
     "dist/",
     "typings.json"
   ],
-  "homepage": "https://github.com/mulesoft-labs/typesystem-ts",
+  "homepage": "https://github.com/mulesoft-labs/yaml-ast-parser",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mulesoft-labs/typesystem-ts/issues"
+    "url": "https://github.com/mulesoft-labs/yaml-ast-parser/issues"
   },
   "typings": "./src/index.d.ts",
   "devDependencies": {
