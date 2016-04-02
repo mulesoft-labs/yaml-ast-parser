@@ -1,4 +1,4 @@
-/// <reference path="../../typings/main.d.ts" />
+
 
 // Standard YAML's JSON schema.
 // http://www.yaml.org/spec/1.2/spec.html#id2803231

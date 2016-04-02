@@ -1,4 +1,4 @@
-/// <reference path="../typings/main.d.ts" />
+
 import Mark=require("./mark")
 'use strict';
 class YAMLException {

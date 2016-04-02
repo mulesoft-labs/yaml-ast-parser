@@ -1,4 +1,4 @@
-/// <reference path="../../typings/main.d.ts" />
+
 
 declare function require(n:string):any
 

@@ -1,4 +1,3 @@
-/// <reference path="../typings/main.d.ts" />
 import ast=require("./yamlAST")
 'use strict';
 

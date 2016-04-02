@@ -1,4 +1,4 @@
-/// <reference path="../../typings/main.d.ts" />
+
 
 // JS-YAML's default schema for `safeLoad` function.
 // It is not described in the YAML specification.
