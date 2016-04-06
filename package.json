@@ -1,6 +1,6 @@
 {
   "name": "yaml-ast-parser",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "private": false,
   "main": "dist/index.js",
   "scripts": {
@@ -15,21 +15,17 @@
   "typings":"dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mulesoft-labs/yaml-ast-parser.git"
+    "url": "https://github.com/mulesoft/yaml-ast-parser.git"
   },
   "keywords": [
     "raml",
-    "ast","yaml"
+    "ast",
+    "yaml"
   ],
-  "author": {
-    "name": "Pavel Petrochenko",
-    "email": "petrochenko.pavel.a@gmail.com",
-    "url": "ru.linkedin.com/in/petrochenkopavel"
-  },
-  "homepage": "https://github.com/mulesoft-labs/yaml-ast-parser",
+  "homepage": "https://github.com/mulesoft/yaml-ast-parser",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/mulesoft-labs/yaml-ast-parser/issues"
+    "url": "https://github.com/mulesoft/yaml-ast-parser/issues"
   },
   "devDependencies": {
     "chai": "^2.2.0",
