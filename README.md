@@ -1,4 +1,5 @@
 # yaml-ast-parser
+
 This is a fork of JS-YAML which supports parsing of YAML into AST.
 
 In additional to parsing YAML to AST, it has following features:
