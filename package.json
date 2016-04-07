@@ -1,6 +1,6 @@
 {
   "name": "yaml-ast-parser",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "main": "dist/index.js",
   "scripts": {
     "build": "rm -rf dist/ && ./node_modules/typescript/bin/tsc"
