@@ -296,7 +296,7 @@ function captureSegment(state:State, start:number, end:number, checkJson:boolean
   if (scalar.startPosition==-1){
       scalar.startPosition=start;
   }
-  if (start < end) {
+  if (start <= end) {
     _result = state.input.slice(start, end);
 
     if (checkJson) {
@@ -1711,9 +1711,13 @@ export function load(input:string, options) {
     /*eslint-disable no-undefined*/
     return undefined;
   } else if (1 === documents.length) {
+      var result = documents[0];
       //root node always takes whole file
-      documents[0].endPosition=input.length
-      return documents[0];
+      result.endPosition=input.length
+      if(result.startPosition>result.endPosition){
+          result.startPosition = result.endPosition;
+      }
+      return result;
   }
     var e=new YAMLException('expected a single document in the stream, but found more');
     e.mark=new Mark("","",0,0,0);
