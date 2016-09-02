@@ -333,7 +333,8 @@ function mergeMappings(state:State, destination, source) {
   }
 }
 
-function storeMappingPair(state:State, _result:ast.YamlMap, keyTag, keyNode:ast.YAMLNode, valueNode:ast.YAMLNode):ast.YamlMap {
+function storeMappingPair(state:State, _result:ast.YamlMap, keyTag, keyNode:ast.YAMLNode,
+                          valueNode:ast.YAMLNode):ast.YamlMap {
   var index, quantity;
     if (keyNode==null){
         return;
@@ -349,16 +350,15 @@ function storeMappingPair(state:State, _result:ast.YamlMap, keyTag, keyNode:ast.
         mappings: [],kind:ast.Kind.MAP};
   }
 
-  if ('tag:yaml.org,2002:merge' === keyTag) {
-      throw new Error("Should not happen")//TODO LOOK IN IT
-    //if (Array.isArray(valueNode)) {
-    //  for (index = 0, quantity = valueNode.length; index < quantity; index += 1) {
-    //    mergeMappings(state, _result, valueNode[index]);
-    //  }
-    //} else {
-    //  mergeMappings(state, _result, valueNode);
-    //}
-  } else {
+  // if ('tag:yaml.org,2002:merge' === keyTag) {
+  //   if (Array.isArray(valueNode)) {
+  //    for (index = 0, quantity = (<any>valueNode).length; index < quantity; index += 1) {
+  //      mergeMappings(state, _result, valueNode[index]);
+  //    }
+  //   } else {
+  //    mergeMappings(state, _result, valueNode);
+  //   }
+  // } else {
 
        var mapping=ast.newMapping(<ast.YAMLScalar>keyNode,valueNode);
        mapping.parent=_result;
@@ -368,7 +368,7 @@ function storeMappingPair(state:State, _result:ast.YamlMap, keyTag, keyNode:ast.
       }
       _result.mappings.push(mapping)
     _result.endPosition=valueNode? valueNode.endPosition : keyNode.endPosition+1; //FIXME.workaround should be position of ':' indeed
-  }
+  // }
 
   return _result;
 }
