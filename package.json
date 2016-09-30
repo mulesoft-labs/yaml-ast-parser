@@ -10,7 +10,7 @@
     "devInstall": "dev-env-installer install"
   },
   "dependencies": {
-    "underscore": "^1.8.3"
+
   },
   "typings":"dist/index.d.ts",
   "repository": {
