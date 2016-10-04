@@ -38,6 +38,7 @@ export interface YAMLScalar extends YAMLNode{
     value:string
     doubleQuoted?:boolean
     plainScalar?:boolean
+    rawValue:string
 }
 
 export interface YAMLMapping extends YAMLNode{
@@ -83,7 +84,8 @@ export function newScalar(v:string=""):YAMLScalar{
         value:v,
         kind:Kind.SCALAR,
         parent:null,
-        doubleQuoted:false
+        doubleQuoted:false,
+        rawValue:v
     }
 }
 export function newItems():YAMLSequence{

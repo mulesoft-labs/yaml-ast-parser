@@ -119,9 +119,16 @@ function charFromCodepoint(c) {
 
 var simpleEscapeCheck = new Array(256); // integer, for fast access
 var simpleEscapeMap = new Array(256);
+var customEscapeCheck = new Array(256); // integer, for fast access
+var customEscapeMap = new Array(256);
 for (var i = 0; i < 256; i++) {
-  simpleEscapeCheck[i] = simpleEscapeSequence(i) ? 1 : 0;
-  simpleEscapeMap[i] = simpleEscapeSequence(i);
+  customEscapeMap[i] = simpleEscapeMap[i] = simpleEscapeSequence(i);
+  simpleEscapeCheck[i] = simpleEscapeMap[i] ? 1 : 0;
+  customEscapeCheck[i] = 1;
+
+  if (!simpleEscapeCheck[i]) {
+    customEscapeMap[i] = '\\' + String.fromCharCode(i);
+  }
 }
 
 
@@ -151,6 +158,7 @@ class State{
     tagMap:any
     version:string
     checkLineBreaks:boolean
+    allowAnyEscape:boolean
 
     constructor(input:string,options:any){
         this.input = input;
@@ -158,7 +166,8 @@ class State{
         this.filename  = options['filename']  || null;
         this.schema    = options['schema']    || DEFAULT_FULL_SCHEMA;
         this.onWarning = options['onWarning'] || null;
-        this.legacy    = options['legacy']    || false;
+        this.legacy     = options['legacy']    || false;
+        this.allowAnyEscape = options['allowAnyEscape']    || false;
 
         this.implicitTypes = this.schema.compiledImplicit;
         this.typeMap       = this.schema.compiledTypeMap;
@@ -571,6 +580,7 @@ function readPlainScalar(state:State, nodeIndent, withinFlowCollection) {
   captureSegment(state, captureStart, captureEnd, false);
 
   if (state.result.startPosition!=-1) {
+    state_result.rawValue = state.input.substring(state_result.startPosition, state_result.endPosition);
     return true;
   }
 
@@ -655,6 +665,7 @@ function readDoubleQuotedScalar(state:State, nodeIndent:number) {
       captureSegment(state, captureStart, state.position, true);
       state.position++;
         scalar.endPosition=state.position;
+        scalar.rawValue = state.input.substring(scalar.startPosition, scalar.endPosition);
         return true;
 
     } else if (0x5C/* \ */ === ch) {
@@ -665,8 +676,8 @@ function readDoubleQuotedScalar(state:State, nodeIndent:number) {
         skipSeparationSpace(state, false, nodeIndent);
 
         // TODO: rework to inline fn with no type cast?
-      } else if (ch < 256 && simpleEscapeCheck[ch]) {
-        scalar.value += simpleEscapeMap[ch];
+      } else if (ch < 256 && (state.allowAnyEscape ? customEscapeCheck[ch] : simpleEscapeCheck[ch])) {
+        scalar.value += (state.allowAnyEscape ? customEscapeMap[ch] : simpleEscapeMap[ch]);
         state.position++;
 
       } else if ((tmp = escapedHexLen(ch)) > 0) {
@@ -981,6 +992,7 @@ function readBlockScalar(state:State, nodeIndent) {
 
   }
   sc.endPosition=i;
+  sc.rawValue = state.input.substring(sc.startPosition, sc.endPosition);
   return true;
 }
 
