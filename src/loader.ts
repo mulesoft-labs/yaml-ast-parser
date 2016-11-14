@@ -159,6 +159,9 @@ class State{
     version:string
     checkLineBreaks:boolean
     allowAnyEscape:boolean
+    ignoreDuplicateKeys: boolean;
+
+    lines: Line[] = [];
 
     constructor(input:string,options:any){
         this.input = input;
@@ -168,6 +171,7 @@ class State{
         this.onWarning = options['onWarning'] || null;
         this.legacy     = options['legacy']    || false;
         this.allowAnyEscape = options['allowAnyEscape']    || false;
+        this.ignoreDuplicateKeys = options['ignoreDuplicateKeys'] || false;
 
         this.implicitTypes = this.schema.compiledImplicit;
         this.typeMap       = this.schema.compiledTypeMap;
@@ -189,6 +193,26 @@ function generateError(state, message) {
   return new YAMLException(
     message,
     new Mark(state.filename, state.input, state.position, state.line-1, (state.position - state.lineStart)));
+}
+
+function throwErrorFromPosition(state, position: number, message) {
+    var line = positionToLine(state, position);
+
+    if(!line) {
+        return;
+    }
+
+    var hash = message + position;
+    
+    if(state.errorMap[hash]) {
+        return;
+    }
+    
+    var mark = new Mark(state.filename, state.input, position, line.line-1, (position - line.start));
+    
+    var error = new YAMLException(message, mark);
+
+    state.errors.push(error);
 }
 
 function throwError(state:State, message) {
@@ -375,6 +399,14 @@ function storeMappingPair(state:State, _result:ast.YamlMap, keyTag, keyNode:ast.
       if (valueNode!=null) {
           valueNode.parent = mapping;
       }
+    
+    !state.ignoreDuplicateKeys && _result.mappings.forEach(sibling => {
+        if(sibling.key && sibling.key.value === (mapping.key && mapping.key.value)) {
+            throwErrorFromPosition(state, mapping.key.startPosition, 'duplicate key');
+            throwErrorFromPosition(state, sibling.key.startPosition, 'duplicate key');
+        }
+    });
+        
       _result.mappings.push(mapping)
     _result.endPosition=valueNode? valueNode.endPosition : keyNode.endPosition+1; //FIXME.workaround should be position of ':' indeed
   // }
@@ -400,6 +432,37 @@ function readLineBreak(state:State) {
 
   state.line += 1;
   state.lineStart = state.position;
+    
+    state.lines.push({
+        start: state.lineStart,
+        line: state.line
+    });
+}
+
+class Line {
+    start: number;
+    line: number;
+}
+
+function positionToLine(state: State, position: number): Line {
+    var line: Line;
+    
+    for(var i = 0; i < state.lines.length; i++) {
+        if(state.lines[i].start > position) {
+            break;
+        }
+        
+        line = state.lines[i];
+    }
+
+    if(!line) {
+        return {
+            start: 0,
+            line: 0
+        }
+    }
+    
+    return line;
 }
 
 function skipSeparationSpace(state:State, allowComments, checkIndent) {
