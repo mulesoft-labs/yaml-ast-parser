@@ -13,6 +13,26 @@ export class YAMLException {
     name:string
     mark:Mark
 
+    private static CLASS_IDENTIFIER = "yaml-ast-parser.YAMLException";
+
+    public static isInstance(instance : any) : instance is YAMLException {
+        if(instance != null && instance.getClassIdentifier
+            && typeof(instance.getClassIdentifier) == "function"){
+
+            for (let currentIdentifier of instance.getClassIdentifier()){
+                if(currentIdentifier == YAMLException.CLASS_IDENTIFIER) return true;
+            }
+        }
+
+        return false;
+    }
+
+    public getClassIdentifier() : string[] {
+        var superIdentifiers = [];
+
+        return superIdentifiers.concat(YAMLException.CLASS_IDENTIFIER);
+    }
+
     constructor(reason:string, mark:Mark=null) {
         this.name = 'YAMLException';
         this.reason = reason;
