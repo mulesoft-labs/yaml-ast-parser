@@ -3,13 +3,13 @@
     "build" : "npm run build",
     "test" : "gulp test",
     "gitUrl" : "https://github.com/raml-org/raml-js-parser-2.git",
-    "gitBranch": "randomInstanceofFix",
+    "gitBranch": "develop",
     "installTypings" : true
   },
   "raml-definition-system" : {
     "build" : "npm run build",
     "gitUrl" : "https://github.com/raml-org/raml-definition-system.git",
-    "gitBranch": "randomInstanceofFix",
+    "gitBranch": "develop",
     "installTypings" : true
   },
   "raml-typesystem" : {
@@ -33,7 +33,7 @@
     "build" : "npm run build",
     "gitUrl" : "https://github.com/mulesoft-labs/ts-model.git",
     "installTypings" : true,
-    "gitBranch": "randomInstanceofFix"
+    "gitBranch": "develop"
   }
 }
 
