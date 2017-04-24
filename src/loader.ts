@@ -662,6 +662,7 @@ function readSingleQuotedScalar(state:State, nodeIndent) {
     return false;
   }
   var scalar=ast.newScalar();
+  scalar.singleQuoted=true;
   state.kind = 'scalar';
   state.result = scalar;
     scalar.startPosition=state.position;

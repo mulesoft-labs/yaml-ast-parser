@@ -37,6 +37,7 @@ export interface YAMLAnchorReference extends YAMLNode{
 export interface YAMLScalar extends YAMLNode{
     value:string
     doubleQuoted?:boolean
+    singleQuoted?:boolean
     plainScalar?:boolean
     rawValue:string
 }
