@@ -11,6 +11,8 @@ class Mark{
 
   filePath: string;
 
+  toLineEnd:boolean;
+
   getSnippet(indent:number=0, maxLength:number=75) {
   var head, start, tail, end, snippet;
 

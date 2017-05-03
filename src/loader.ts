@@ -1483,6 +1483,8 @@ function composeNode(state:State, parentIndent, nodeContext, allowToSeek, allowC
     }
   }
 
+  let tagStart = state.position;
+  let tagColumn = state.position - state.lineStart;
   if (1 === indentStatus) {
     while (readTagProperty(state) || readAnchorProperty(state)) {
       if (skipSeparationSpace(state, true, -1)) {
@@ -1601,7 +1603,17 @@ function composeNode(state:State, parentIndent, nodeContext, allowToSeek, allowC
         }
       }
     } else {
-      throwWarning(state, 'unknown tag !<' + state.tag + '>');
+      let err=generateError(state,'unknown tag <' + state.tag + '>');
+      let hash=err.message+err.mark.position;
+      if (!state.errorMap[hash]){
+        state.errors.push(err);
+        state.errorMap[hash]=1;
+      }
+      if(err){
+        err.mark.position = tagStart;
+        err.mark.column = tagColumn;
+        err.mark.toLineEnd = true;
+      }
     }
   }
 
