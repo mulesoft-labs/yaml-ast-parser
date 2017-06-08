@@ -208,7 +208,7 @@ function throwErrorFromPosition(state, position: number, message) {
         return;
     }
     
-    var mark = new Mark(state.filename, state.input, position, line.line-1, (position - line.start));
+    var mark = new Mark(state.filename, state.input, position, line.line, (position - line.start));
     
     var error = new YAMLException(message, mark);
 
