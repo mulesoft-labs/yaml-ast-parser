@@ -9,23 +9,27 @@ In additional to parsing YAML to AST, it has following features:
 * restoration after the errors and reporting errors as a part of AST nodes.
 * built-in support for `!include` tag used in RAML
 
+## Usage
+The type information below is relevant when using TypeScript, if using from JavaScript only the field/method information is relevant.
 
-`load` method can be used to load the tree and returns `YAMLNode` root.
+`load` method can be used to load the tree and returns a `YAMLNode`.
 
+### YAMLNode
 `YAMLNode` class is an ancestor for all node kinds.
-It's `kind` field determine node kind, one of `Kind` enum: `SCALAR`, `MAPPING`, `MAP`, `SEQ`, `ANCHOR_REF` or `INCLUDE_REF`. After node kind is determined, it can be casted to one of the `YAMLNode` descendants: `YAMLScalar`, `YAMLMapping`, `YamlMap`, `YAMLSequence` or `YAMLAnchorReference`.
+It's `kind` field determine node kind, one of `Kind` enum:
+  * `SCALAR`, `MAPPING`, `MAP`, `SEQ`, `ANCHOR_REF` or `INCLUDE_REF`.
+ 
+After node kind is determined, it can be cast to one of the `YAMLNode` descendants types:
+ * `YAMLScalar`, `YAMLMapping`, `YamlMap`, `YAMLSequence` or `YAMLAnchorReference`.
 
-`startPosition` and `endPosition` of `YAMLNode` class provide node range.
-
-`YAMLScalar` has string `value` field.
-
-`YAMLMapping` has `YAMLScalar` `key` and `YAMLNode` `value` fields.
-
-`YAMLSequence` has `YAMLNode[]` `items` field.
-
-`YamlMap` has `YAMLMapping[]` `mappings` field.
-
-`YAMLAnchorReference` has string `referencesAnchor` and `YAMLNode` `value`.
+| class | important members |
+|-------|-------------------|
+| `YAMLNode` | `startPosition` and `endPosition` provide node range.|
+| `YAMLScalar` | `string` `value` field |
+| `YAMLMapping` |`YAMLScalar` `key` and `YAMLNode` `value` fields | 
+| `YAMLSequence` | `YAMLNode[]` `items` field|
+| `YamlMap` | `YAMLMapping[]` `mappings` field|
+| `YAMLAnchorReference` | `string` `referencesAnchor` and `YAMLNode` `value`|
 
 
 
