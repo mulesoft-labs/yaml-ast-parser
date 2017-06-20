@@ -173,3 +173,5 @@ export var loadAll             = loader.loadAll;
 export var safeLoad            = loader.safeLoad;
 export var dump                = dumper.dump;
 export var safeDump            = dumper.safeDump;
+
+export * from './scalarInference'

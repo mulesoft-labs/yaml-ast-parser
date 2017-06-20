@@ -31,5 +31,12 @@ After node kind is determined, it can be cast to one of the `YAMLNode` descendan
 | `YamlMap` | `YAMLMapping[]` `mappings` field|
 | `YAMLAnchorReference` | `string` `referencesAnchor` and `YAMLNode` `value`|
 
+### YAMLScalar
 
+Scalars are [one of the three main node types defined by YAML](http://www.yaml.org/spec/1.2/spec.html#scalar//) and are effectively leaf nodes.
 
+There are many factors that can influence the type of datum represent in scalar node (context, schema, tag, etc.).
+
+To help inspection of a `YAMLScalar` to determine its datatype when a document uses the [Core Schema](http://www.yaml.org/spec/1.2/spec.html#id2804923), you can pass the `YAMLScalar` to the `determineScalarType` function.  It will return an enum value indicating `null`, `bool`, `int`, `float`, or `string`.
+
+Once you know the type, there are also some helper functions to help read the value by passing them the string, `value`: `parseYamlBoolean`, `parseYamlFloat`, and `parseYamlInteger`.
