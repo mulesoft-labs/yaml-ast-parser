@@ -63,7 +63,14 @@ suite('determineScalarType', () => {
   .nan,
   "-123\n345"
 ]`)
-            assert.deepStrictEqual(node.items.map(n => determineScalarType(n)), [ScalarType.null, ScalarType.bool, ScalarType.int, ScalarType.float, ScalarType.float, ScalarType.float, ScalarType.string])
+
+            const expected = [ScalarType.null, ScalarType.bool, ScalarType.int, ScalarType.float, ScalarType.float, ScalarType.float, ScalarType.string]
+
+            for (var idx = 0; idx < node.items.length; idx++) {
+                var element = determineScalarType(node.items[idx]);
+                
+                assert.strictEqual(element, expected[idx]);
+            }
         })
     })
 
