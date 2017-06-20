@@ -1783,7 +1783,7 @@ function loadDocuments(input:string, options) {
 }
 
 
-export function loadAll(input:string, iterator, options) {
+export function loadAll(input: string, iterator: (document: ast.YAMLDocument) => void, options: LoadOptions = {}) {
   var documents = loadDocuments(input, options), index, length;
 
   for (index = 0, length = documents.length; index < length; index += 1) {
@@ -1792,7 +1792,7 @@ export function loadAll(input:string, iterator, options) {
 }
 
 
-export function load(input:string, options) {
+export function load(input:string, options: LoadOptions = {}) {
   var documents = loadDocuments(input, options), index, length;
 
   if (0 === documents.length) {
@@ -1818,14 +1818,24 @@ export function load(input:string, options) {
 }
 
 
-export function safeLoadAll(input:string, output, options) {
+export function safeLoadAll(input: string, output: (document: ast.YAMLDocument) => void, options: LoadOptions = {}) {
   loadAll(input, output, common.extend({ schema: DEFAULT_SAFE_SCHEMA }, options));
 }
 
 
-export function safeLoad(input:string, options) {
+export function safeLoad(input:string, options: LoadOptions = {}) {
   return load(input, common.extend({ schema: DEFAULT_SAFE_SCHEMA }, options));
 }
+
+export interface LoadOptions{
+  filename?: string,
+  schema?: any,
+  onWarning?: () => any,
+  legacy?: boolean,
+  allowAnyEscape?: boolean,
+  ignoreDuplicateKeys?: boolean
+}
+
 declare var module:any;
 
 module.exports.loadAll     = loadAll;
