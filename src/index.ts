@@ -4,6 +4,7 @@
  */
 
 import loader = require('./loader');
+export { LoadOptions } from './loader';
 import dumper = require('./dumper');
 import Mark=require("./mark")
 export class YAMLException {
