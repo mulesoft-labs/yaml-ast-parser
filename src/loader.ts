@@ -189,10 +189,11 @@ class State{
 
 
 
-function generateError(state, message) {
+function generateError(state, message, isWarning=false) {
   return new YAMLException(
     message,
-    new Mark(state.filename, state.input, state.position, state.line-1, (state.position - state.lineStart)));
+    new Mark(state.filename, state.input, state.position, state.line-1, (state.position - state.lineStart)),
+    isWarning);
 }
 
 function throwErrorFromPosition(state, position: number, message) {
@@ -471,6 +472,9 @@ function skipSeparationSpace(state:State, allowComments, checkIndent) {
 
   while (0 !== ch) {
     while (is_WHITE_SPACE(ch)) {
+      if(ch===0x09/*Tab*/){
+        state.errors.push(generateError(state,"Using tabs can lead to unpredictable results",true));
+      }
       ch = state.input.charCodeAt(++state.position);
     }
 
