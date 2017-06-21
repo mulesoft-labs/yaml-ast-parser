@@ -3,8 +3,9 @@
  * Created by kor on 06/05/15.
  */
 
-export {load, loadAll, safeLoad} from './loader';
+export {load, loadAll, safeLoad, LoadOptions} from './loader';
 export {dump, safeDump} from './dumper';
+
 import Mark=require("./mark")
 export class YAMLException {
 
@@ -64,3 +65,4 @@ function deprecated(name) {
     };
 }
 
+export * from './scalarInference'
