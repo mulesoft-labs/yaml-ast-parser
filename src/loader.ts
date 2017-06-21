@@ -192,11 +192,11 @@ class State{
 function generateError(state, message, isWarning=false) {
   return new YAMLException(
     message,
-    new Mark(state.filename, state.input, state.position, state.line-1, (state.position - state.lineStart)),
+    new Mark(state.filename, state.input, state.position, state.line, (state.position - state.lineStart)),
     isWarning);
 }
 
-function throwErrorFromPosition(state, position: number, message) {
+function throwErrorFromPosition(state, position: number, message, isWarning=false, toLineEnd=false) {
     var line = positionToLine(state, position);
 
     if(!line) {
@@ -209,10 +209,12 @@ function throwErrorFromPosition(state, position: number, message) {
         return;
     }
     
-    var mark = new Mark(state.filename, state.input, position, line.line-1, (position - line.start));
+    var mark = new Mark(state.filename, state.input, position, line.line, (position - line.start));
+    if(toLineEnd){
+        mark.toLineEnd = true;
+    }
     
-    var error = new YAMLException(message, mark);
-
+    var error = new YAMLException(message, mark, isWarning);
     state.errors.push(error);
 }
 
@@ -1607,17 +1609,7 @@ function composeNode(state:State, parentIndent, nodeContext, allowToSeek, allowC
         }
       }
     } else {
-      let err=generateError(state,'unknown tag <' + state.tag + '>');
-      let hash=err.message+err.mark.position;
-      if (!state.errorMap[hash]){
-        state.errors.push(err);
-        state.errorMap[hash]=1;
-      }
-      if(err){
-        err.mark.position = tagStart;
-        err.mark.column = tagColumn;
-        err.mark.toLineEnd = true;
-      }
+      throwErrorFromPosition(state,tagStart,'unknown tag <' + state.tag + '>',false,true);
     }
   }
 
