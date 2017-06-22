@@ -3,6 +3,7 @@
 'use strict';
 
 import Type = require('../type');
+import ast = require("../yamlAST");
 
 var _hasOwnProperty = Object.prototype.hasOwnProperty;
 
@@ -11,14 +12,8 @@ function resolveYamlSet(data) {
     return true;
   }
 
-  var key, object = data;
-
-  for (key in object) {
-    if (_hasOwnProperty.call(object, key)) {
-      if (null !== object[key]) {
-        return false;
-      }
-    }
+  if(data.kind != ast.Kind.MAP){
+    return false;
   }
 
   return true;
