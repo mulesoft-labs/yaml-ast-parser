@@ -9,7 +9,7 @@ import YAMLException = require('./exception');
 import {Type} from './type';
 
 
-function compileList(schema, name, result) {
+function compileList(schema: Schema, name, result) {
   var exclude = [];
 
   schema.include.forEach(function (includedSchema) {
@@ -46,16 +46,22 @@ function compileMap(/* lists... */) {
   return result;
 }
 
+export interface SchemaDefinition{
+  include?:Schema[]
+  implicit?:Type[]
+  explicit?:Type[]
+}
+
 export class Schema {
 
-  include:Type[]
+  include:Schema[]
   implicit:Type[]
   explicit:Type[]
 
   compiledImplicit:any[]
   compiledExplicit:any[]
   compiledTypeMap:any[]
-  constructor(definition:any) {
+  constructor(definition:SchemaDefinition) {
     this.include = definition.include || [];
     this.implicit = definition.implicit || [];
     this.explicit = definition.explicit || [];
