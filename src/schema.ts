@@ -6,7 +6,7 @@
 
 import common        = require('./common');
 import YAMLException = require('./exception');
-import Type          = require('./type');
+import {Type} from './type';
 
 
 function compileList(schema, name, result) {
@@ -46,11 +46,11 @@ function compileMap(/* lists... */) {
   return result;
 }
 
-class Schema {
+export class Schema {
 
-  include:any[]
-  implicit:any[]
-  explicit:any[]
+  include:Type[]
+  implicit:Type[]
+  explicit:Type[]
 
   compiledImplicit:any[]
   compiledExplicit:any[]
@@ -107,5 +107,3 @@ class Schema {
       });
     }
 }
-
-export = Schema;

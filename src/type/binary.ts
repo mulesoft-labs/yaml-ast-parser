@@ -8,7 +8,7 @@ declare function require(n:string):any
 // A trick for browserified version.
 // Since we make browserifier to ignore `buffer` module, NodeBuffer will be undefined
 var NodeBuffer = require('buffer').Buffer;
-import Type       = require('../type');
+import {Type} from '../type';
 
 
 // [ 64, 65, 66 ] -> [ padding, CR, LF ]

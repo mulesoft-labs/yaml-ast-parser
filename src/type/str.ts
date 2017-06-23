@@ -2,7 +2,7 @@
 
 'use strict';
 
-import Type = require('../type');
+import {Type} from '../type';
 
 export = new Type('tag:yaml.org,2002:str', {
   kind: 'scalar',

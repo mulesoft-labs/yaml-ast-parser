@@ -2,7 +2,7 @@
 
 'use strict';
 
-import Type = require('../../type');
+import {Type} from '../../type';
 
 function resolveJavascriptRegExp(data) {
   if (null === data) {

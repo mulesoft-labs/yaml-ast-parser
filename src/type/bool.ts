@@ -4,7 +4,7 @@ declare function require(n:string):any
 
 'use strict';
 
-import Type = require('../type');
+import {Type} from '../type';
 
 function resolveYamlBoolean(data) {
   if (null === data) {

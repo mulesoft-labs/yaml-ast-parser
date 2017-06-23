@@ -2,7 +2,7 @@
 
 'use strict';
 
-import Type = require('../type');
+import {Type} from '../type';
 
 function resolveYamlNull(data) {
   if (null === data) {

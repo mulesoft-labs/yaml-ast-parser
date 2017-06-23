@@ -9,7 +9,7 @@
 
 declare function require(n:string):any
 
-var Schema = require('../schema');
+import {Schema} from '../schema';
 
 
 export = new Schema({
