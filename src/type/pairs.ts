@@ -2,7 +2,7 @@
 
 'use strict';
 
-import Type = require('../type');
+import {Type} from '../type';
 import ast =require("../yamlAST");
 
 var _toString = Object.prototype.toString;

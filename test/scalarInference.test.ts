@@ -7,8 +7,7 @@ var assert = require('assert');
 var {suite, test} = require('mocha');
 import { determineScalarType as sut, ScalarType, parseYamlBoolean, parseYamlInteger, parseYamlFloat } from '../src/scalarInference'
 
-import * as Yaml from '../src/yamlAST'
-import {safeLoad as loadYaml} from '../src/index'
+import * as Yaml from '../src/index'
 
 suite('determineScalarType', () => {
 
@@ -17,7 +16,7 @@ suite('determineScalarType', () => {
     }
 
     function safeLoad(input) {
-        return loadYaml(input, {})
+        return Yaml.safeLoad(input, {})
     }
 
     let _test = test;

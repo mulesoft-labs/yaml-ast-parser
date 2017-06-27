@@ -6,10 +6,10 @@
 
 import common        = require('./common');
 import YAMLException = require('./exception');
-import Type          = require('./type');
+import {Type} from './type';
 
 
-function compileList(schema, name, result) {
+function compileList(schema: Schema, name, result) {
   var exclude = [];
 
   schema.include.forEach(function (includedSchema) {
@@ -46,16 +46,22 @@ function compileMap(/* lists... */) {
   return result;
 }
 
-class Schema {
+export interface SchemaDefinition{
+  include?:Schema[]
+  implicit?:Type[]
+  explicit?:Type[]
+}
 
-  include:any[]
-  implicit:any[]
-  explicit:any[]
+export class Schema {
+
+  include:Schema[]
+  implicit:Type[]
+  explicit:Type[]
 
   compiledImplicit:any[]
   compiledExplicit:any[]
   compiledTypeMap:any[]
-  constructor(definition:any) {
+  constructor(definition:SchemaDefinition) {
     this.include = definition.include || [];
     this.implicit = definition.implicit || [];
     this.explicit = definition.explicit || [];
@@ -107,5 +113,3 @@ class Schema {
       });
     }
 }
-
-export = Schema;

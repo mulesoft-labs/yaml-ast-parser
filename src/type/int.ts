@@ -3,7 +3,7 @@
 'use strict';
 
 import common = require('../common');
-import Type   = require('../type');
+import {Type} from '../type';
 
 function isHexCode(c) {
   return ((0x30/* 0 */ <= c) && (c <= 0x39/* 9 */)) ||

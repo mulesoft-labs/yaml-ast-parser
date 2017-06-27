@@ -6,6 +6,7 @@ import ast=require("./yamlAST")
 import common              = require('./common');
 import YAMLException       = require('./exception');
 import Mark                = require('./mark');
+import {Schema} from './schema'
 import DEFAULT_SAFE_SCHEMA = require('./schema/default_safe');
 import DEFAULT_FULL_SCHEMA = require('./schema/default_full');
 
@@ -137,7 +138,7 @@ class State{
 
     input:string
     filename:string;
-    schema:any
+    schema: Schema
     errorMap:any={}
     errors:YAMLException[]=[]
     onWarning:()=>any

@@ -2,7 +2,7 @@
 
 'use strict';
 
-import Type = require('../type');
+import {Type} from '../type';
 
 var _hasOwnProperty = Object.prototype.hasOwnProperty;
 var _toString       = Object.prototype.toString;

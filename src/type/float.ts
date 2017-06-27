@@ -3,7 +3,7 @@
 'use strict';
 
 import common = require('../common');
-import Type   = require('../type');
+import {Type} from '../type';
 
 var YAML_FLOAT_PATTERN = new RegExp(
   '^(?:[-+]?(?:[0-9][0-9_]*)\\.[0-9_]*(?:[eE][-+][0-9]+)?' +

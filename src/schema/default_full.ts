@@ -12,7 +12,7 @@
 'use strict';
 declare function require(n:string):any
 
-import Schema = require('../schema');
+import {Schema} from '../schema';
 
 var schema=new Schema({
   include: [

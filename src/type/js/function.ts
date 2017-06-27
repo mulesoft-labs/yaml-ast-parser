@@ -12,7 +12,7 @@ var esprima=require("esprima");
 //    found too - then fail to parse.
 //
 
-import Type = require('../../type');
+import {Type} from '../../type';
 
 function resolveJavascriptFunction(data) {
   if (null === data) {

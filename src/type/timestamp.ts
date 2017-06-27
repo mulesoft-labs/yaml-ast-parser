@@ -2,7 +2,7 @@
 
 'use strict';
 
-import Type = require('../type');
+import {Type} from '../type';
 
 var YAML_TIMESTAMP_REGEXP = new RegExp(
   '^([0-9][0-9][0-9][0-9])'          + // [1] year
