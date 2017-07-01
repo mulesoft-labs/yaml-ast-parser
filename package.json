@@ -8,7 +8,7 @@
     "buildall": "dev-env-installer buildall",
     "testall": "dev-env-installer testall",
     "devInstall": "dev-env-installer install",
-    "test": "npm run build && mocha dist/test"
+    "test": "npm run build && mocha --ui tdd dist/test"
   },
   "dependencies": {},
   "typings": "dist/src/index.d.ts",
@@ -32,7 +32,6 @@
     "dev-env-installer": "0.0.5",
     "mocha": "^3.4.2",
     "rimraf": "*",
-    "typescript": "1.8.7",
-    "typings": "^0.5.1"
+    "typescript": "^2.4.1"
   }
 }
