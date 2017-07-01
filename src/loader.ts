@@ -1215,6 +1215,8 @@ function readBlockMapping(state:State, nodeIndent, flowIndent) {
           keyTag = state.tag;
           keyNode = state.result;
 
+        } else if (state.position == state.lineStart && testDocumentSeparator(state)) {
+          break; // Reading is done. Go to the epilogue.
         } else if (detected) {
           throwError(state, 'can not read an implicit mapping pair; a colon is missed');
 
