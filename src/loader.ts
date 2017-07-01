@@ -150,7 +150,7 @@ class State{
     line:number
     lineStart:number
     lineIndent:number
-    documents:ast.YAMLDocument[];
+    documents:ast.YAMLNode[];
     kind:string
     result:ast.YAMLNode
     tag:string
