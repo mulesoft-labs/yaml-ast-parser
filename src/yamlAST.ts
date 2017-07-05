@@ -25,8 +25,19 @@ export interface YAMLNode extends YAMLDocument{
     valueObject?:any
     parent:YAMLNode
     errors:YAMLException[]
+    /**
+     * @deprecated Inspect kind and cast to the appropriate subtype instead.
+     */
     value?:any
+
+    /**
+     * @deprecated Inspect kind and cast to the appropriate subtype instead.
+     */
     key?:any
+
+    /**
+     * @deprecated Inspect kind and cast to the appropriate subtype instead.
+     */
     mappings?:any
 }
 
