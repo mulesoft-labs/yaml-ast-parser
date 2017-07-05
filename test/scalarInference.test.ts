@@ -1,10 +1,4 @@
-// Typings are available but need TypeScript 2
-declare var suite: any;
-declare var test: any;
-declare var require: any;
-
-var assert = require('assert');
-var {suite, test} = require('mocha');
+import assert = require('assert');
 import { determineScalarType as sut, ScalarType, parseYamlBoolean, parseYamlInteger, parseYamlFloat } from '../src/scalarInference'
 
 import * as Yaml from '../src/index'
