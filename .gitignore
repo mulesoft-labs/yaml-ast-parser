@@ -8,5 +8,6 @@
 *.iml
 .project
 .settings
+.vscode
 
 /dist/
