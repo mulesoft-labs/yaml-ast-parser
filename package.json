@@ -27,8 +27,10 @@
     "url": "https://github.com/mulesoft-labs/yaml-ast-parser/issues"
   },
   "devDependencies": {
+    "@types/chai": "^4.0.1",
     "@types/mocha": "^2.2.41",
     "@types/node": "^0.12.0",
+    "chai": "^4.0.2",
     "dev-env-installer": "0.0.5",
     "mocha": "^3.4.2",
     "rimraf": "*",

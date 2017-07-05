@@ -1,6 +1,7 @@
 import YAMLException = require("../src/exception");
 
-import  assert = require('assert');
+import * as chai from 'chai'
+const assert = chai.assert
 
 import {safeLoad as loadYaml} from '../src/index'
 
@@ -64,7 +65,7 @@ function testErrors(input:string,expectedErrors: TestError[]) {
 
     let ast = safeLoad(input);
     if(!ast){
-        assert(false,"The parser has failed to load YAML AST");
+        assert.fail("The parser has failed to load YAML AST");
     }
     let actualErrors = ast.errors;
     if(actualErrors.length==0 && expectedErrors.length==0){

@@ -1,4 +1,5 @@
-import assert = require('assert');
+import * as chai from 'chai'
+const assert = chai.assert
 import { determineScalarType as sut, ScalarType, parseYamlBoolean, parseYamlInteger, parseYamlFloat } from '../src/scalarInference'
 
 import * as Yaml from '../src/index'
@@ -59,11 +60,7 @@ suite('determineScalarType', () => {
 
             const expected = [ScalarType.null, ScalarType.bool, ScalarType.int, ScalarType.float, ScalarType.float, ScalarType.float, ScalarType.string]
 
-            for (var idx = 0; idx < node.items.length; idx++) {
-                var element = determineScalarType(node.items[idx]);
-                
-                assert.strictEqual(element, expected[idx]);
-            }
+            assert.deepEqual(node.items.map(d => determineScalarType(d)), expected)
         })
     })
 
