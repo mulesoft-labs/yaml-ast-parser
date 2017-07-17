@@ -1782,7 +1782,7 @@ function loadDocuments(input:string, options) {
 }
 
 
-export function loadAll(input: string, iterator: (document: ast.YAMLDocument) => void, options: LoadOptions = {}) {
+export function loadAll(input: string, iterator: (document: ast.YAMLNode) => void, options: LoadOptions = {}) {
   var documents = loadDocuments(input, options), index, length;
 
   for (index = 0, length = documents.length; index < length; index += 1) {
@@ -1791,7 +1791,7 @@ export function loadAll(input: string, iterator: (document: ast.YAMLDocument) =>
 }
 
 
-export function load(input:string, options: LoadOptions = {}) {
+export function load(input:string, options: LoadOptions = {}): ast.YAMLNode {
   var documents = loadDocuments(input, options), index, length;
 
   if (0 === documents.length) {
@@ -1817,12 +1817,12 @@ export function load(input:string, options: LoadOptions = {}) {
 }
 
 
-export function safeLoadAll(input: string, output: (document: ast.YAMLDocument) => void, options: LoadOptions = {}) {
+export function safeLoadAll(input: string, output: (document: ast.YAMLNode) => void, options: LoadOptions = {}) {
   loadAll(input, output, common.extend({ schema: DEFAULT_SAFE_SCHEMA }, options));
 }
 
 
-export function safeLoad(input:string, options: LoadOptions = {}) {
+export function safeLoad(input:string, options: LoadOptions = {}): ast.YAMLNode {
   return load(input, common.extend({ schema: DEFAULT_SAFE_SCHEMA }, options));
 }
 
