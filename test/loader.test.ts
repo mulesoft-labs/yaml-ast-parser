@@ -24,7 +24,16 @@ whatever: true
 
         assert.lengthOf(doc.errors, 0,
             `Found error(s): ${doc.errors.toString()} when expecting none.`)
-    })
+    });
+
+    test('Document end position should be equal to input length', function () {
+        const input = `
+outer:
+inner:
+    `;
+        const doc1 = YAML.load(input);
+        assert.deepEqual(doc1.endPosition,input.length);
+    });
 });
 
 suite('Loading multiple documents', () => {
@@ -53,9 +62,23 @@ whatever: false
         docs.forEach(doc =>
             assert.lengthOf(doc.errors, 0,
                 `Found error(s): ${doc.errors.toString()} when expecting none.`))
-    })
-});
+    });
 
+    test('Last document end position should be equal to input length', function () {
+        const input = `
+outer1:
+inner1:
+...
+---
+outer2:
+inner2:
+    `;
+        const documents: YAML.YAMLDocument[] = [];
+        YAML.loadAll(input,x=>documents.push(x));
+        const doc2 = documents[1];
+        assert.deepEqual(doc2.endPosition,input.length);
+    });
+});
 
 class DuplicateStructureBuilder extends AbstractVisitor {
     visitScalar(node: YAML.YAMLScalar) {

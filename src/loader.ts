@@ -1736,11 +1736,12 @@ function loadDocuments(input:string, options) {
   input = String(input);
   options = options || {};
 
-  if (input.length !== 0) {
+    let inputLength = input.length;
+    if (inputLength !== 0) {
 
     // Add tailing `\n` if not exists
-    if (0x0A/* LF */ !== input.charCodeAt(input.length - 1) &&
-        0x0D/* CR */ !== input.charCodeAt(input.length - 1)) {
+    if (0x0A/* LF */ !== input.charCodeAt(inputLength - 1) &&
+        0x0D/* CR */ !== input.charCodeAt(inputLength - 1)) {
       input += '\n';
     }
 
@@ -1777,8 +1778,21 @@ function loadDocuments(input:string, options) {
         //skip to the new lne
     }
   }
-  state.documents.forEach(x=>x.errors=state.errors);
-  return state.documents;
+
+  let documents = state.documents;
+  let docsCount = documents.length;
+  if(docsCount>0){
+    //last document takes the file till the end
+    documents[docsCount-1].endPosition = inputLength;
+  }
+
+  for(let x of documents){
+    x.errors=state.errors;
+    if(x.startPosition>x.endPosition){
+      x.startPosition = x.endPosition;
+    }
+  }
+  return documents;
 }
 
 
@@ -1798,13 +1812,7 @@ export function load(input:string, options: LoadOptions = {}): ast.YAMLNode {
     /*eslint-disable no-undefined*/
     return undefined;
   } else if (1 === documents.length) {
-      var result = documents[0];
-      //root node always takes whole file
-      result.endPosition=input.length
-      if(result.startPosition>result.endPosition){
-          result.startPosition = result.endPosition;
-      }
-      return result;
+      return documents[0];
   }
     var e=new YAMLException('expected a single document in the stream, but found more');
     e.mark=new Mark("","",0,0,0);
