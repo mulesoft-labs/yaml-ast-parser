@@ -1,6 +1,6 @@
 {
   "name": "yaml-ast-parser",
-  "version": "0.0.35",
+  "version": "0.0.36",
   "main": "dist/src/index.js",
   "scripts": {
     "build": "rimraf dist && tsc",
