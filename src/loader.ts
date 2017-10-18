@@ -887,7 +887,9 @@ function readFlowCollection(state:State, nodeIndent) {
         mp.parent=_result;
         (<ast.YAMLSequence>_result).items.push(mp);
     } else {
-        keyNode.parent=_result;
+        if(keyNode) {
+            keyNode.parent = _result;
+        }
         (<ast.YAMLSequence>_result).items.push(keyNode);
     }
     _result.endPosition=state.position+1/*need to add one more char*/;
@@ -1108,8 +1110,10 @@ function readBlockSequence(state:State, nodeIndent) {
 
     _line = state.line;
     composeNode(state, nodeIndent, CONTEXT_BLOCK_IN, false, true);
-      state.result.parent=_result;
-    _result.items.push(state.result);
+    if(state.result) {
+      state.result.parent = _result;
+      _result.items.push(state.result);
+    }
     skipSeparationSpace(state, true, -1);
 
     ch = state.input.charCodeAt(state.position);
