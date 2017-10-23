@@ -223,10 +223,11 @@ function throwError(state:State, message) {
     //FIXME
     var error=generateError(state,message);
     var hash=error.message+error.mark.position;
-    if (!state.errorMap[hash]){
-        state.errors.push(error);
-        state.errorMap[hash]=1;
+    if (state.errorMap[hash]) {
+        return;
     }
+    state.errors.push(error);
+    state.errorMap[hash]=1;
     var or=state.position;
     while (true){
         if (state.position>=state.input.length-1){
