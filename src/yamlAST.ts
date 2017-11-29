@@ -88,17 +88,21 @@ export function newAnchorRef(key:string,start:number,end:number,value:YAMLNode):
         parent:null
     }
 }
-export function newScalar(v:string=""):YAMLScalar{
-    return {
+export function newScalar(v:string|boolean|number=""):YAMLScalar{
+    const result:YAMLScalar = {
         errors:[],
         startPosition:-1,
         endPosition:-1,
-        value:v,
+        value:""+v,
         kind:Kind.SCALAR,
         parent:null,
         doubleQuoted:false,
-        rawValue:v
+        rawValue:""+v,
+    };
+    if(typeof v !== "string"){
+        result.valueObject = v;
     }
+    return result
 }
 export function newItems():YAMLSequence{
     return {
