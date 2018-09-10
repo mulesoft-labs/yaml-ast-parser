@@ -3,6 +3,15 @@ import * as YAML from '../src/';
 import * as util from './testUtil';
 
 suite('YAML Syntax', () => {
+	test('Allow astral characters', function () {
+		const key = '𝑘𝑒𝑦';
+		const value = '𝑣𝑎𝑙𝑢𝑒';
+		const document = YAML.safeLoad(`${key}: ${value}`);
+	
+		assert.deepEqual(document.mappings[0].key.value, key);
+		assert.deepEqual(document.mappings[0].value.value, value);
+	});
+
 	test('Forbid non-printable characters', function () {
 		testErrors('\x01', [{
 			line: 1,
