@@ -25,7 +25,7 @@ var CHOMPING_STRIP = 2;
 var CHOMPING_KEEP  = 3;
 
 
-var PATTERN_NON_PRINTABLE         = /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x84\x86-\x9F\uD800-\uDFFF\uFFFE\uFFFF]/;
+var PATTERN_NON_PRINTABLE         = /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x84\x86-\x9F\uFFFE\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/;
 var PATTERN_NON_ASCII_LINE_BREAKS = /[\x85\u2028\u2029]/;
 var PATTERN_FLOW_INDICATORS       = /[,\[\]\{\}]/;
 var PATTERN_TAG_HANDLE            = /^(?:!|!!|![a-z\-]+!)$/i;
@@ -347,7 +347,10 @@ function captureSegment(state:State, start:number, end:number, checkJson:boolean
           throwError(state, 'expected valid JSON character');
         }
       }
+    } else if (PATTERN_NON_PRINTABLE.test(_result)) {
+      throwError(state, 'the stream contains non-printable characters');
     }
+
     scalar.value+=_result;
     scalar.endPosition=end;
   }
@@ -1741,8 +1744,8 @@ function loadDocuments(input:string, options) {
   input = String(input);
   options = options || {};
 
-    let inputLength = input.length;
-    if (inputLength !== 0) {
+  let inputLength = input.length;
+  if (inputLength !== 0) {
 
     // Add tailing `\n` if not exists
     if (0x0A/* LF */ !== input.charCodeAt(inputLength - 1) &&
@@ -1757,10 +1760,6 @@ function loadDocuments(input:string, options) {
   }
 
   var state = new State(input, options);
-
-  if (PATTERN_NON_PRINTABLE.test(state.input)) {
-    throwError(state, 'the stream contains non-printable characters');
-  }
 
   // Use 0 as string terminator. That significantly simplifies bounds check.
   state.input += '\0';
