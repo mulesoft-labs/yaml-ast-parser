@@ -3,11 +3,11 @@ import Mark=require("./mark")
 'use strict';
 class YAMLException {
 
-  message:string
-  reason:string
-  name:string
-  mark:Mark
-  isWarning:boolean
+  message:   string;
+  reason:    string;
+  name:      string;
+  mark:      Mark;
+  isWarning: boolean;
 
   private static CLASS_IDENTIFIER = "yaml-ast-parser.YAMLException";
 

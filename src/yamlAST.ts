@@ -3,7 +3,7 @@
  * Created by kor on 06/05/15.
  */
 import YAMLException       = require('./exception');
-export enum Kind{
+export enum Kind {
     SCALAR,
     MAPPING,
     MAP,
@@ -13,57 +13,45 @@ export enum Kind{
 }
 
 export interface YAMLDocument {
-    startPosition:number
-    endPosition:number
-    errors:YAMLException[]
+    startPosition: number;
+    endPosition:   number;
+    errors:        YAMLException[];
 }
 export interface YAMLNode extends YAMLDocument{
-    startPosition:number
-    endPosition:number
-    kind:Kind
-    anchorId?:string
-    valueObject?:any
-    parent:YAMLNode
-    errors:YAMLException[]
-    /**
-     * @deprecated Inspect kind and cast to the appropriate subtype instead.
-     */
-    value?:any
-
-    /**
-     * @deprecated Inspect kind and cast to the appropriate subtype instead.
-     */
-    key?:any
-
-    /**
-     * @deprecated Inspect kind and cast to the appropriate subtype instead.
-     */
-    mappings?:any
+    startPosition:      number;
+    endPosition:        number;
+    kind:               Kind;
+    anchorId?:          string;
+    valueObject?:       any;
+    parent:             YAMLNode;
+    errors:             YAMLException[];
 }
 
 export interface YAMLAnchorReference extends YAMLNode{
-    referencesAnchor:string
-    value:YAMLNode
+    referencesAnchor: string;
+    value:            YAMLNode;
 }
 export interface YAMLScalar extends YAMLNode{
-    value:string
-    doubleQuoted?:boolean
-    singleQuoted?:boolean
-    plainScalar?:boolean
-    rawValue:string
+    value:         string;
+    doubleQuoted?: boolean;
+    singleQuoted?: boolean;
+    plainScalar?:  boolean;
+    rawValue:      string;
 }
 
 export interface YAMLMapping extends YAMLNode{
-    key:YAMLScalar
-    value:YAMLNode
+    key:   YAMLScalar;
+    value: YAMLNode;
 }
 export interface YAMLSequence extends YAMLNode{
-    items:YAMLNode[]
+    items: YAMLNode[]
 }
 export interface YamlMap extends YAMLNode{
-    mappings:YAMLMapping[]
+    mappings: YAMLMapping[]
 }
-export function newMapping(key:YAMLScalar,value:YAMLNode):YAMLMapping{
+
+
+export function newMapping(key: YAMLScalar,value: YAMLNode): YAMLMapping {
     var end = (value ? value.endPosition : key.endPosition + 1); //FIXME.workaround, end should be defied by position of ':'
     //console.log('key: ' + key.value + ' ' + key.startPosition + '..' + key.endPosition + ' ' + value + ' end: ' + end);
     var node = {
@@ -77,7 +65,7 @@ export function newMapping(key:YAMLScalar,value:YAMLNode):YAMLMapping{
   };
   return node
 }
-export function newAnchorRef(key:string,start:number,end:number,value:YAMLNode):YAMLAnchorReference{
+export function newAnchorRef(key: string, start: number, end: number, value: YAMLNode): YAMLAnchorReference{
     return {
         errors:[],
         referencesAnchor:key,

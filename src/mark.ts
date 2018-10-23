@@ -6,8 +6,13 @@ import common = require('./common');
 
 class Mark{
 
-  constructor(public name:string, public buffer:string, public position:number, public line:number, public column:number) {
-  }
+  constructor(
+    public name:     string,
+    public buffer:   string,
+    public position: number,
+    public line:     number,
+    public column:   number,
+  ) {}
 
   filePath: string;
 
