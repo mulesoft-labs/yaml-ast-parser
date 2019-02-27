@@ -1606,7 +1606,7 @@ function composeNode(state:State, parentIndent, nodeContext, allowToSeek, allowC
     } else if (_hasOwnProperty.call(state.typeMap, state.tag)) {
       type = state.typeMap[state.tag];
 
-      if (null !== state.result && type.kind !== state.kind) {
+      if (null !== state.result && type.kind !== state.kind && (!type.additionalKinds || (type.additionalKinds && type.additionalKinds.indexOf(state.kind) === -1))) {
         throwError(state, 'unacceptable node kind for !<' + state.tag + '> tag; it should be "' + type.kind + '", not "' + state.kind + '"');
       }
 
