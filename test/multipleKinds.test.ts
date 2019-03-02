@@ -20,12 +20,25 @@ suite('Multiple Custom Tag Kinds ', () => {
             return new Type(typeInfo[0], { kind: typeInfo[1] || 'scalar' });
         }));
 
-        //We need compiledTypeMap to be available from schemaWithAdditionalTags before we add the new custom properties
-        customTags.map((tag) => {
+        /**
+         * Collect the additional tags into a map of string to possible tag types
+         */
+        const tagWithAdditionalItems = new Map<string, string[]>();
+        customTags.forEach(tag => {
             const typeInfo = tag.split(' ');
-            const t = new Type(typeInfo[0], { kind: typeInfo[1] || 'scalar' });
-            t.additionalKinds = ["scalar"];
-            schemaWithAdditionalTags.compiledTypeMap[typeInfo[0]] = t;
+            const tagName = typeInfo[0];
+            const tagType = (typeInfo[1] && typeInfo[1].toLowerCase()) || 'scalar';
+            if (tagWithAdditionalItems.has(tagName)) {
+                tagWithAdditionalItems.set(tagName, tagWithAdditionalItems.get(tagName).concat([tagType]));
+            } else {
+                tagWithAdditionalItems.set(tagName, [tagType]);
+            }
+        });
+
+        tagWithAdditionalItems.forEach((additionalTagKinds, key) => {
+            const newTagType = new Type(key, { kind: additionalTagKinds[0] || 'scalar' });
+            newTagType.additionalKinds = additionalTagKinds;
+            schemaWithAdditionalTags.compiledTypeMap[key] = newTagType;
         });
 
         let additionalOptions: YAML.LoadOptions = {
@@ -48,19 +61,31 @@ suite('Multiple Custom Tag Kinds ', () => {
         });
         assert.equal(errorCount, expectedErrorCount);
     }
-
-	test('Allow multiple different custom tag types', function () {
-        let customTags = ["!test scalar", "!test mapping"];
-        const f = multipleKindsHelper(customTags, "!test");
-        checkDocumentsForNoErrors(f);
-    });
     
     test('Allow one custom tag type', function () {
         let customTags = ["!test scalar"];
         const f = multipleKindsHelper(customTags, "!test");
         checkDocumentsForNoErrors(f);
     });
+
+    test('Allow multiple different custom tag types', function () {
+        let customTags = ["!test scalar", "!test mapping"];
+        const f = multipleKindsHelper(customTags, "!test");
+        checkDocumentsForNoErrors(f);
+    });
+
+    test('Allow multiple different custom tag types with different use', function () {
+        let customTags = ["!test scalar", "!test mapping"];
+        const f = multipleKindsHelper(customTags, "!test\nhello: !test\n  world");
+        checkDocumentsForNoErrors(f);
+    });
     
+    test('Allow multiple different custom tag types with multiple different uses', function () {
+        let customTags = ["!test scalar", "!test mapping", "!ref sequence", "!ref mapping"];
+        const f = multipleKindsHelper(customTags, "!test\nhello: !test\n  world\nsequence: !ref\n  - item1");
+        checkDocumentsForNoErrors(f);
+    });
+
     test('Error when custom tag is not available', function () {
         let customTags = [];
         const f = multipleKindsHelper(customTags, "!test");
