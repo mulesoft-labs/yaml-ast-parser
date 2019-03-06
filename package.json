@@ -1,5 +1,5 @@
 {
-  "name": "yaml-ast-parser",
+  "name": "yaml-ast-parser-custom-tags",
   "version": "0.0.43",
   "main": "dist/src/index.js",
   "scripts": {
