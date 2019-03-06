@@ -14,7 +14,7 @@
   "typings": "dist/src/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mulesoft-labs/yaml-ast-parser.git"
+    "url": "https://github.com/jpinkney/yaml-ast-parser.git"
   },
   "keywords": [
     "raml",
