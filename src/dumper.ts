@@ -117,6 +117,8 @@ function State(options: DumpOptions) {
   this.schema      = options['schema'] || DEFAULT_FULL_SCHEMA;
   this.indent      = Math.max(1, (options['indent'] || 2));
   this.lineWidth   = options.lineWidth !== void 0 ? options.lineWidth : 80;
+  this.noRefs      = options['noRefs'] || false;
+
   this.skipInvalid = options['skipInvalid'] || false;
   this.flowLevel   = (common.isNothing(options['flowLevel']) ? -1 : options['flowLevel']);
   this.styleMap    = compileStyleMap(this.schema, options['styles'] || null);
@@ -842,6 +844,8 @@ export interface DumpOptions {
   schema?: SchemaDefinition;
   /** set max line width. (default: 80) */
   lineWidth?: number;
+  /** if `true`, don't convert duplicate objects into references (default: false) */
+  noRefs?: boolean;
 }
 
 export function dump(input, options?: DumpOptions) {
@@ -849,7 +853,7 @@ export function dump(input, options?: DumpOptions) {
 
   var state = new State(options);
 
-  getDuplicateReferences(input, state);
+  if (!options.noRefs) getDuplicateReferences(input, state);
 
   if (writeNode(state, 0, input, true, true)) {
     return state.dump + '\n';

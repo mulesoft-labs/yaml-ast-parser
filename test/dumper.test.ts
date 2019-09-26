@@ -27,4 +27,25 @@ Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, ad
 `);
     });
   });
+
+  suite('noRefs dump option', () => {
+    test('should use anchors for same objects by default', () => {
+      const obj = { foo: 'bar' };
+
+      expect(safeDump({ a: obj, b: obj })).to.equal(`a: &ref_0
+  foo: bar
+b: *ref_0
+`);
+    });
+
+    test('should not use anchors for same objects if truthy', () => {
+      const obj = { foo: 'bar' };
+
+      expect(safeDump({ a: obj, b: obj }, { noRefs: true })).to.equal(`a:
+  foo: bar
+b:
+  foo: bar
+`)
+    });
+  });
 });
