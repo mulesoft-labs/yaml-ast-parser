@@ -1,17 +1,11 @@
-This is a custom maintained fork specifically for the YAML Language server.
 
-The ONLY goal of this fork is to extend the custom tags of YAML-AST-PARSER so that custom tags can have multiple types.
+This is a maintained fork of YAML-AST-PARSER specifically for the YAML Language server.
 
 If you are looking for the main YAML-AST-PARSER project you can find that [here](https://github.com/mulesoft-labs/yaml-ast-parser)
 
-Changes in the project:
-    - src/loader.ts - added additionalKinds field
-    - test/multipleKinds.test.ts - added tests for additionalKinds field
-    - README.md
-
 # yaml-ast-parser
 
-[![Build Status](https://travis-ci.org/jpinkney/yaml-ast-parser.svg?branch=master)](https://travis-ci.org/jpinkney/yaml-ast-parser)
+[![Build Status](https://travis-ci.org/redhat-developer/yaml-ast-parser.svg?branch=master)](https://travis-ci.org/jpinkney/yaml-ast-parser)
 
 This is a fork of JS-YAML which supports parsing of YAML into AST.
 

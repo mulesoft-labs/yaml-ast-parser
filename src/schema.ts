@@ -78,18 +78,18 @@ export class Schema {
   }
 
   static DEFAULT=null;
-  static create=function createSchema() {
+  static create=function createSchema(...args: any[]) {
       var schemas, types;
 
-      switch (arguments.length) {
+      switch (args.length) {
         case 1:
           schemas = Schema.DEFAULT;
-          types = arguments[0];
+          types = args[0];
           break;
 
         case 2:
-          schemas = arguments[0];
-          types = arguments[1];
+          schemas = args[0];
+          types = args[1];
           break;
 
         default:

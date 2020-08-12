@@ -10,3 +10,4 @@
 .vscode
 
 /dist/
+target/npmlist.json

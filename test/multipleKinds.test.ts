@@ -1,11 +1,11 @@
 import { assert } from "chai";
 import * as YAML from '../src';
-import { Schema, Type } from 'js-yaml';
-import ast = require("../src/yamlAST");
+import { Schema } from '../src/schema'
+import {Type } from '../src/type'
 
 /*
  * This test is specifically for the intergration into the YAML Language Server.
- * Users have been requesting that multiple custom tags types be allowed for a tag. 
+ * Users have been requesting that multiple custom tags types be allowed for a tag.
  */
 suite('Multiple Custom Tag Kinds ', () => {
 
@@ -57,11 +57,11 @@ suite('Multiple Custom Tag Kinds ', () => {
     function checkDocumentsForErrors(documents: YAML.YAMLNode[], expectedErrorCount: number) {
         let errorCount = 0;
         documents.forEach(element => {
-            errorCount += element.errors.length;  
+            errorCount += element.errors.length;
         });
         assert.equal(errorCount, expectedErrorCount);
     }
-    
+
     test('Allow one custom tag type', function () {
         let customTags = ["!test scalar"];
         const f = multipleKindsHelper(customTags, "!test");
@@ -79,7 +79,7 @@ suite('Multiple Custom Tag Kinds ', () => {
         const f = multipleKindsHelper(customTags, "!test\nhello: !test\n  world");
         checkDocumentsForNoErrors(f);
     });
-    
+
     test('Allow multiple different custom tag types with multiple different uses', function () {
         let customTags = ["!test scalar", "!test mapping", "!ref sequence", "!ref mapping"];
         const f = multipleKindsHelper(customTags, "!test\nhello: !test\n  world\nsequence: !ref\n  - item1");

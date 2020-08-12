@@ -45,6 +45,7 @@ export class Type {
   defaultStyle;
   styleAliases;
   loadKind;
+  additionalKinds;
 
   constructor(tag, options) {
     options = options || {};
