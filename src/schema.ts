@@ -47,21 +47,22 @@ function compileMap(/* lists... */) {
 }
 
 export interface SchemaDefinition{
-  include?:Schema[]
-  implicit?:Type[]
-  explicit?:Type[]
+  include?:  Schema[];
+  implicit?: Type[];
+  explicit?: Type[];
 }
 
 export class Schema {
-
-  include:Schema[]
-  implicit:Type[]
-  explicit:Type[]
-
-  compiledImplicit:any[]
-  compiledExplicit:any[]
-  compiledTypeMap:any[]
-  constructor(definition:SchemaDefinition) {
+  
+  include:  Schema[];
+  implicit: Type[];
+  explicit: Type[];
+  
+  compiledImplicit: any[];
+  compiledExplicit: any[];
+  compiledTypeMap:  any[];
+  
+  constructor(definition: SchemaDefinition) {
     this.include = definition.include || [];
     this.implicit = definition.implicit || [];
     this.explicit = definition.explicit || [];
@@ -76,20 +77,20 @@ export class Schema {
     this.compiledExplicit = compileList(this, 'explicit', []);
     this.compiledTypeMap = (<any>compileMap)(this.compiledImplicit, this.compiledExplicit);
   }
-
-  static DEFAULT=null;
-  static create=function createSchema() {
+  
+  static DEFAULT = null;
+  static create = function createSchema(...args: any[]) {
       var schemas, types;
 
-      switch (arguments.length) {
+      switch (args.length) {
         case 1:
           schemas = Schema.DEFAULT;
-          types = arguments[0];
+          types = args[0];
           break;
 
         case 2:
-          schemas = arguments[0];
-          types = arguments[1];
+          schemas = args[0];
+          types = args[1];
           break;
 
         default:

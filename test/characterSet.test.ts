@@ -7,11 +7,18 @@ suite('YAML Syntax', () => {
 		const key = '𝑘𝑒𝑦';
 		const value = '𝑣𝑎𝑙𝑢𝑒';
 		const document = YAML.safeLoad(`${key}: ${value}`);
-	
-		assert.deepEqual(document.mappings[0].key.value, key);
-		assert.deepEqual(document.mappings[0].value.value, value);
+		
+		const mapping = ((<YAML.YamlMap>document).mappings[0]);
+		assert.deepEqual(
+			mapping.key.value,
+			key
+		);
+		assert.deepEqual(
+			(<YAML.YAMLScalar>mapping.value).value,
+			value
+		);
 	});
-
+	
 	test('Forbid non-printable characters', function () {
 		testErrors('\x01', [{
 			line: 1,
@@ -48,9 +55,12 @@ suite('YAML Syntax', () => {
 		const key = '"\x7f\x9f\udc00\ud800"';
 		const document = YAML.safeLoad(key);
 
-		assert.deepEqual(document.value, '\x7f\x9f\udc00\ud800');
+		assert.deepEqual(
+			(<YAML.YAMLScalar>document).value,
+			'\x7f\x9f\udc00\ud800'
+		);
 	});
-
+	
 	test('Forbid control sequences inside quoted scalars', function () {
 		testErrors('"\x03"', [{
 			line: 0,
