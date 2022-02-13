@@ -283,20 +283,20 @@ var directiveHandlers = {
 
       if (null === match) {
         throwError(state, 'ill-formed argument of the YAML directive');
-      }
-
-      major = parseInt(match[1], 10);
-      minor = parseInt(match[2], 10);
-
-      if (1 !== major) {
-        throwError(state, 'found incompatible YAML document (version 1.2 is required)');
-      }
-
-      state.version = args[0];
-      state.checkLineBreaks = (minor < 2);
-
-      if (2 !== minor) {
-        throwError(state, 'found incompatible YAML document (version 1.2 is required)');
+      } else {
+        major = parseInt(match[1], 10);
+        minor = parseInt(match[2], 10);
+  
+        if (1 !== major) {
+          throwError(state, 'found incompatible YAML document (version 1.2 is required)');
+        }
+  
+        state.version = args[0];
+        state.checkLineBreaks = (minor < 2);
+  
+        if (2 !== minor) {
+          throwError(state, 'found incompatible YAML document (version 1.2 is required)');
+        }
       }
     },
 
