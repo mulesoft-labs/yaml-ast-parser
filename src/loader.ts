@@ -374,8 +374,8 @@ function mergeMappings(state:State, destination, source) {
   }
 }
 
-function storeMappingPair(state:State, _result:ast.YamlMap, keyTag, keyNode:ast.YAMLNode,
-                          valueNode:ast.YAMLNode):ast.YamlMap {
+function storeMappingPair(state:State, _result:ast.YAMLMap, keyTag, keyNode:ast.YAMLNode,
+                          valueNode:ast.YAMLNode):ast.YAMLMap {
   var index, quantity;
     if (keyNode==null){
         return;
@@ -885,7 +885,7 @@ function readFlowCollection(state:State, nodeIndent) {
     }
 
     if (isMapping) {
-      storeMappingPair(state, (<ast.YamlMap>_result), keyTag, keyNode, valueNode);
+      storeMappingPair(state, (<ast.YAMLMap>_result), keyTag, keyNode, valueNode);
     } else if (isPair) {
         var mp=storeMappingPair(state, null, keyTag, keyNode, valueNode);
         mp.parent=_result;

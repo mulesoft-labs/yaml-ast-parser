@@ -60,9 +60,10 @@ export interface YAMLMapping extends YAMLNode{
 export interface YAMLSequence extends YAMLNode{
     items:YAMLNode[]
 }
-export interface YamlMap extends YAMLNode{
+export interface YAMLMap extends YAMLNode{
     mappings:YAMLMapping[]
 }
+export type YamlMap = YAMLMap; // keep it for backward compatibility
 export function newMapping(key:YAMLScalar,value:YAMLNode):YAMLMapping{
     var end = (value ? value.endPosition : key.endPosition + 1); //FIXME.workaround, end should be defied by position of ':'
     //console.log('key: ' + key.value + ' ' + key.startPosition + '..' + key.endPosition + ' ' + value + ' end: ' + end);
@@ -117,7 +118,7 @@ export function newItems():YAMLSequence{
 export function newSeq():YAMLSequence{
     return newItems();
 }
-export function newMap(mappings?: YAMLMapping[]):YamlMap{
+export function newMap(mappings?: YAMLMapping[]):YAMLMap {
     return {
         errors:[],
         startPosition:-1,
