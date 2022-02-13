@@ -4,7 +4,7 @@
  */
 
 export {load, loadAll, safeLoad, safeLoadAll, LoadOptions} from './loader';
-export {dump, safeDump} from './dumper';
+export {dump, safeDump, DumpOptions} from './dumper';
 
 import Mark=require("./mark")
 export import YAMLException = require('./exception');
