@@ -1,6 +1,9 @@
 
 
 'use strict';
+
+import { SchemaDefinition } from "./schema";
+
 declare function require(n:string):any
 /*eslint-disable no-use-before-define*/
 
@@ -110,9 +113,12 @@ function encodeHex(character) {
   return '\\' + handle + common.repeat('0', length - string.length) + string;
 }
 
-function State(options) {
+function State(options: DumpOptions) {
   this.schema      = options['schema'] || DEFAULT_FULL_SCHEMA;
   this.indent      = Math.max(1, (options['indent'] || 2));
+  this.lineWidth   = options.lineWidth !== void 0 ? options.lineWidth : 80;
+  this.noRefs      = options['noRefs'] || false;
+
   this.skipInvalid = options['skipInvalid'] || false;
   this.flowLevel   = (common.isNothing(options['flowLevel']) ? -1 : options['flowLevel']);
   this.styleMap    = compileStyleMap(this.schema, options['styles'] || null);
@@ -264,11 +270,13 @@ function writeScalar(state, object, level) {
   longestLine = 0;
 
   indent = state.indent * level;
-  max = 80;
-  if (indent < 40) {
-    max -= indent;
-  } else {
-    max = 40;
+  max = state.lineWidth;
+  if (isFinite(max)) {
+    if (indent < 40) {
+      max -= indent;
+    } else {
+      max = 40;
+    }
   }
 
   for (position = 0; position < object.length; position++) {
@@ -428,6 +436,10 @@ function fold(object, max) {
 
 function foldLine(line, max) {
   if (line === '') {
+    return line;
+  }
+
+  if (!isFinite(max)) {
     return line;
   }
 
@@ -817,12 +829,31 @@ function inspectNode(object, objects, duplicatesIndexes) {
   }
 }
 
-export function dump(input, options) {
+export interface DumpOptions {
+  /** indentation width to use (in spaces). */
+  indent?: number;
+  /** when true, will not add an indentation level to array elements */
+  noArrayIndent?: boolean;
+  /** do not throw on invalid types (like function in the safe schema) and skip pairs and single values with such types. */
+  skipInvalid?: boolean;
+  /** specifies level of nesting, when to switch from block to flow style for collections. -1 means block style everwhere */
+  flowLevel?: number;
+  /** Each tag may have own set of styles.	- "tag" => "style" map. */
+  styles?: { [x: string]: any; };
+  /** specifies a schema to use. */
+  schema?: SchemaDefinition;
+  /** set max line width. (default: 80) */
+  lineWidth?: number;
+  /** if `true`, don't convert duplicate objects into references (default: false) */
+  noRefs?: boolean;
+}
+
+export function dump(input, options?: DumpOptions) {
   options = options || {};
 
   var state = new State(options);
 
-  getDuplicateReferences(input, state);
+  if (!options.noRefs) getDuplicateReferences(input, state);
 
   if (writeNode(state, 0, input, true, true)) {
     return state.dump + '\n';
@@ -830,6 +861,6 @@ export function dump(input, options) {
   return '';
 }
 
-export function safeDump(input, options) {
+export function safeDump(input, options?: DumpOptions) {
   return dump(input, common.extend({ schema: DEFAULT_SAFE_SCHEMA }, options));
 }
