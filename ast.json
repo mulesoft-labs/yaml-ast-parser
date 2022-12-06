@@ -1,0 +1,2334 @@
+{
+  "tag": "tag:yaml.org,2002:map",
+  "value": [
+    [
+      {
+        "tag": "tag:yaml.org,2002:str",
+        "value": "openapi",
+        "start_mark": {
+          "line": 0,
+          "column": 0,
+          "pointer": 0
+        },
+        "end_mark": {
+          "line": 0,
+          "column": 7,
+          "pointer": 7
+        },
+        "unique_id": "node_1"
+      },
+      {
+        "tag": "tag:yaml.org,2002:str",
+        "value": "3.0.0",
+        "start_mark": {
+          "line": 0,
+          "column": 9,
+          "pointer": 9
+        },
+        "end_mark": {
+          "line": 0,
+          "column": 14,
+          "pointer": 14
+        },
+        "unique_id": "node_2"
+      }
+    ],
+    [
+      {
+        "tag": "tag:yaml.org,2002:str",
+        "value": "info",
+        "start_mark": {
+          "line": 1,
+          "column": 0,
+          "pointer": 15
+        },
+        "end_mark": {
+          "line": 1,
+          "column": 4,
+          "pointer": 19
+        },
+        "unique_id": "node_3"
+      },
+      {
+        "tag": "tag:yaml.org,2002:map",
+        "value": [
+          [
+            {
+              "tag": "tag:yaml.org,2002:str",
+              "value": "version",
+              "start_mark": {
+                "line": 2,
+                "column": 2,
+                "pointer": 23
+              },
+              "end_mark": {
+                "line": 2,
+                "column": 9,
+                "pointer": 30
+              },
+              "unique_id": "node_5"
+            },
+            {
+              "tag": "tag:yaml.org,2002:str",
+              "value": "1.0.0",
+              "start_mark": {
+                "line": 2,
+                "column": 11,
+                "pointer": 32
+              },
+              "end_mark": {
+                "line": 2,
+                "column": 16,
+                "pointer": 37
+              },
+              "unique_id": "node_6"
+            }
+          ],
+          [
+            {
+              "tag": "tag:yaml.org,2002:str",
+              "value": "title",
+              "start_mark": {
+                "line": 3,
+                "column": 2,
+                "pointer": 40
+              },
+              "end_mark": {
+                "line": 3,
+                "column": 7,
+                "pointer": 45
+              },
+              "unique_id": "node_7"
+            },
+            {
+              "tag": "tag:yaml.org,2002:str",
+              "value": "yaml schema",
+              "start_mark": {
+                "line": 3,
+                "column": 9,
+                "pointer": 47
+              },
+              "end_mark": {
+                "line": 3,
+                "column": 20,
+                "pointer": 58
+              },
+              "unique_id": "node_8"
+            }
+          ]
+        ],
+        "start_mark": {
+          "line": 2,
+          "column": 2,
+          "pointer": 23
+        },
+        "end_mark": {
+          "line": 4,
+          "column": 0,
+          "pointer": 59
+        },
+        "flow_style": false,
+        "unique_id": "node_4"
+      }
+    ],
+    [
+      {
+        "tag": "tag:yaml.org,2002:str",
+        "value": "servers",
+        "start_mark": {
+          "line": 4,
+          "column": 0,
+          "pointer": 59
+        },
+        "end_mark": {
+          "line": 4,
+          "column": 7,
+          "pointer": 66
+        },
+        "unique_id": "node_9"
+      },
+      {
+        "tag": "tag:yaml.org,2002:seq",
+        "value": [
+          {
+            "tag": "tag:yaml.org,2002:map",
+            "value": [
+              [
+                {
+                  "tag": "tag:yaml.org,2002:str",
+                  "value": "url",
+                  "start_mark": {
+                    "line": 5,
+                    "column": 4,
+                    "pointer": 72
+                  },
+                  "end_mark": {
+                    "line": 5,
+                    "column": 7,
+                    "pointer": 75
+                  },
+                  "unique_id": "node_12"
+                },
+                {
+                  "tag": "tag:yaml.org,2002:str",
+                  "value": "http://petstore.swagger.io/v1",
+                  "start_mark": {
+                    "line": 5,
+                    "column": 9,
+                    "pointer": 77
+                  },
+                  "end_mark": {
+                    "line": 5,
+                    "column": 40,
+                    "pointer": 108
+                  },
+                  "style": "'",
+                  "unique_id": "node_13"
+                }
+              ]
+            ],
+            "start_mark": {
+              "line": 5,
+              "column": 4,
+              "pointer": 72
+            },
+            "end_mark": {
+              "line": 6,
+              "column": 0,
+              "pointer": 109
+            },
+            "flow_style": false,
+            "unique_id": "node_11"
+          }
+        ],
+        "start_mark": {
+          "line": 5,
+          "column": 2,
+          "pointer": 70
+        },
+        "end_mark": {
+          "line": 6,
+          "column": 0,
+          "pointer": 109
+        },
+        "flow_style": false,
+        "unique_id": "node_10"
+      }
+    ],
+    [
+      {
+        "tag": "tag:yaml.org,2002:str",
+        "value": "paths",
+        "start_mark": {
+          "line": 6,
+          "column": 0,
+          "pointer": 109
+        },
+        "end_mark": {
+          "line": 6,
+          "column": 5,
+          "pointer": 114
+        },
+        "unique_id": "node_14"
+      },
+      {
+        "tag": "tag:yaml.org,2002:map",
+        "value": [
+          [
+            {
+              "tag": "tag:yaml.org,2002:str",
+              "value": "/user",
+              "start_mark": {
+                "line": 7,
+                "column": 2,
+                "pointer": 118
+              },
+              "end_mark": {
+                "line": 7,
+                "column": 7,
+                "pointer": 123
+              },
+              "unique_id": "node_16"
+            },
+            {
+              "tag": "tag:yaml.org,2002:map",
+              "value": [
+                [
+                  {
+                    "tag": "tag:yaml.org,2002:str",
+                    "value": "get",
+                    "start_mark": {
+                      "line": 8,
+                      "column": 4,
+                      "pointer": 129
+                    },
+                    "end_mark": {
+                      "line": 8,
+                      "column": 7,
+                      "pointer": 132
+                    },
+                    "unique_id": "node_18"
+                  },
+                  {
+                    "tag": "tag:yaml.org,2002:map",
+                    "value": [
+                      [
+                        {
+                          "tag": "tag:yaml.org,2002:str",
+                          "value": "summary",
+                          "start_mark": {
+                            "line": 9,
+                            "column": 6,
+                            "pointer": 140
+                          },
+                          "end_mark": {
+                            "line": 9,
+                            "column": 13,
+                            "pointer": 147
+                          },
+                          "unique_id": "node_20"
+                        },
+                        {
+                          "tag": "tag:yaml.org,2002:str",
+                          "value": "Sample endpoint: Returns details about a particular user",
+                          "start_mark": {
+                            "line": 9,
+                            "column": 15,
+                            "pointer": 149
+                          },
+                          "end_mark": {
+                            "line": 9,
+                            "column": 73,
+                            "pointer": 207
+                          },
+                          "style": "'",
+                          "unique_id": "node_21"
+                        }
+                      ],
+                      [
+                        {
+                          "tag": "tag:yaml.org,2002:str",
+                          "value": "operationId",
+                          "start_mark": {
+                            "line": 10,
+                            "column": 6,
+                            "pointer": 214
+                          },
+                          "end_mark": {
+                            "line": 10,
+                            "column": 17,
+                            "pointer": 225
+                          },
+                          "unique_id": "node_22"
+                        },
+                        {
+                          "tag": "tag:yaml.org,2002:str",
+                          "value": "listUser",
+                          "start_mark": {
+                            "line": 10,
+                            "column": 19,
+                            "pointer": 227
+                          },
+                          "end_mark": {
+                            "line": 10,
+                            "column": 27,
+                            "pointer": 235
+                          },
+                          "unique_id": "node_23"
+                        }
+                      ],
+                      [
+                        {
+                          "tag": "tag:yaml.org,2002:str",
+                          "value": "tags",
+                          "start_mark": {
+                            "line": 11,
+                            "column": 6,
+                            "pointer": 242
+                          },
+                          "end_mark": {
+                            "line": 11,
+                            "column": 10,
+                            "pointer": 246
+                          },
+                          "unique_id": "node_24"
+                        },
+                        {
+                          "tag": "tag:yaml.org,2002:seq",
+                          "value": [
+                            {
+                              "tag": "tag:yaml.org,2002:str",
+                              "value": "user",
+                              "start_mark": {
+                                "line": 12,
+                                "column": 10,
+                                "pointer": 258
+                              },
+                              "end_mark": {
+                                "line": 12,
+                                "column": 14,
+                                "pointer": 262
+                              },
+                              "unique_id": "node_26"
+                            }
+                          ],
+                          "start_mark": {
+                            "line": 12,
+                            "column": 8,
+                            "pointer": 256
+                          },
+                          "end_mark": {
+                            "line": 13,
+                            "column": 6,
+                            "pointer": 269
+                          },
+                          "flow_style": false,
+                          "unique_id": "node_25"
+                        }
+                      ],
+                      [
+                        {
+                          "tag": "tag:yaml.org,2002:str",
+                          "value": "servers",
+                          "start_mark": {
+                            "line": 13,
+                            "column": 6,
+                            "pointer": 269
+                          },
+                          "end_mark": {
+                            "line": 13,
+                            "column": 13,
+                            "pointer": 276
+                          },
+                          "unique_id": "node_27"
+                        },
+                        {
+                          "tag": "tag:yaml.org,2002:seq",
+                          "value": [
+                            {
+                              "tag": "tag:yaml.org,2002:map",
+                              "value": [
+                                [
+                                  {
+                                    "tag": "tag:yaml.org,2002:str",
+                                    "value": "url",
+                                    "start_mark": {
+                                      "line": 14,
+                                      "column": 10,
+                                      "pointer": 288
+                                    },
+                                    "end_mark": {
+                                      "line": 14,
+                                      "column": 13,
+                                      "pointer": 291
+                                    },
+                                    "unique_id": "node_30"
+                                  },
+                                  {
+                                    "tag": "tag:yaml.org,2002:str",
+                                    "value": "http://petstore.swagger.io/v1",
+                                    "start_mark": {
+                                      "line": 14,
+                                      "column": 15,
+                                      "pointer": 293
+                                    },
+                                    "end_mark": {
+                                      "line": 14,
+                                      "column": 46,
+                                      "pointer": 324
+                                    },
+                                    "style": "'",
+                                    "unique_id": "node_31"
+                                  }
+                                ]
+                              ],
+                              "start_mark": {
+                                "line": 14,
+                                "column": 10,
+                                "pointer": 288
+                              },
+                              "end_mark": {
+                                "line": 15,
+                                "column": 6,
+                                "pointer": 331
+                              },
+                              "flow_style": false,
+                              "unique_id": "node_29"
+                            }
+                          ],
+                          "start_mark": {
+                            "line": 14,
+                            "column": 8,
+                            "pointer": 286
+                          },
+                          "end_mark": {
+                            "line": 15,
+                            "column": 6,
+                            "pointer": 331
+                          },
+                          "flow_style": false,
+                          "unique_id": "node_28"
+                        }
+                      ],
+                      [
+                        {
+                          "tag": "tag:yaml.org,2002:str",
+                          "value": "parameters",
+                          "start_mark": {
+                            "line": 15,
+                            "column": 6,
+                            "pointer": 331
+                          },
+                          "end_mark": {
+                            "line": 15,
+                            "column": 16,
+                            "pointer": 341
+                          },
+                          "unique_id": "node_32"
+                        },
+                        {
+                          "tag": "tag:yaml.org,2002:seq",
+                          "value": [
+                            {
+                              "tag": "tag:yaml.org,2002:map",
+                              "value": [
+                                [
+                                  {
+                                    "tag": "tag:yaml.org,2002:str",
+                                    "value": "name",
+                                    "start_mark": {
+                                      "line": 16,
+                                      "column": 10,
+                                      "pointer": 353
+                                    },
+                                    "end_mark": {
+                                      "line": 16,
+                                      "column": 14,
+                                      "pointer": 357
+                                    },
+                                    "unique_id": "node_35"
+                                  },
+                                  {
+                                    "tag": "tag:yaml.org,2002:str",
+                                    "value": "id",
+                                    "start_mark": {
+                                      "line": 16,
+                                      "column": 16,
+                                      "pointer": 359
+                                    },
+                                    "end_mark": {
+                                      "line": 16,
+                                      "column": 18,
+                                      "pointer": 361
+                                    },
+                                    "unique_id": "node_36"
+                                  }
+                                ],
+                                [
+                                  {
+                                    "tag": "tag:yaml.org,2002:str",
+                                    "value": "in",
+                                    "start_mark": {
+                                      "line": 17,
+                                      "column": 10,
+                                      "pointer": 372
+                                    },
+                                    "end_mark": {
+                                      "line": 17,
+                                      "column": 12,
+                                      "pointer": 374
+                                    },
+                                    "unique_id": "node_37"
+                                  },
+                                  {
+                                    "tag": "tag:yaml.org,2002:str",
+                                    "value": "query",
+                                    "start_mark": {
+                                      "line": 17,
+                                      "column": 14,
+                                      "pointer": 376
+                                    },
+                                    "end_mark": {
+                                      "line": 17,
+                                      "column": 19,
+                                      "pointer": 381
+                                    },
+                                    "unique_id": "node_38"
+                                  }
+                                ],
+                                [
+                                  {
+                                    "tag": "tag:yaml.org,2002:str",
+                                    "value": "description",
+                                    "start_mark": {
+                                      "line": 18,
+                                      "column": 10,
+                                      "pointer": 392
+                                    },
+                                    "end_mark": {
+                                      "line": 18,
+                                      "column": 21,
+                                      "pointer": 403
+                                    },
+                                    "unique_id": "node_39"
+                                  },
+                                  {
+                                    "tag": "tag:yaml.org,2002:str",
+                                    "value": "ID of the user",
+                                    "start_mark": {
+                                      "line": 18,
+                                      "column": 23,
+                                      "pointer": 405
+                                    },
+                                    "end_mark": {
+                                      "line": 18,
+                                      "column": 37,
+                                      "pointer": 419
+                                    },
+                                    "unique_id": "node_40"
+                                  }
+                                ],
+                                [
+                                  {
+                                    "tag": "tag:yaml.org,2002:str",
+                                    "value": "required",
+                                    "start_mark": {
+                                      "line": 19,
+                                      "column": 10,
+                                      "pointer": 430
+                                    },
+                                    "end_mark": {
+                                      "line": 19,
+                                      "column": 18,
+                                      "pointer": 438
+                                    },
+                                    "unique_id": "node_41"
+                                  },
+                                  {
+                                    "tag": "tag:yaml.org,2002:bool",
+                                    "value": "true",
+                                    "start_mark": {
+                                      "line": 19,
+                                      "column": 20,
+                                      "pointer": 440
+                                    },
+                                    "end_mark": {
+                                      "line": 19,
+                                      "column": 24,
+                                      "pointer": 444
+                                    },
+                                    "unique_id": "node_42"
+                                  }
+                                ],
+                                [
+                                  {
+                                    "tag": "tag:yaml.org,2002:str",
+                                    "value": "schema",
+                                    "start_mark": {
+                                      "line": 20,
+                                      "column": 10,
+                                      "pointer": 455
+                                    },
+                                    "end_mark": {
+                                      "line": 20,
+                                      "column": 16,
+                                      "pointer": 461
+                                    },
+                                    "unique_id": "node_43"
+                                  },
+                                  {
+                                    "tag": "tag:yaml.org,2002:map",
+                                    "value": [
+                                      [
+                                        {
+                                          "tag": "tag:yaml.org,2002:str",
+                                          "value": "type",
+                                          "start_mark": {
+                                            "line": 21,
+                                            "column": 12,
+                                            "pointer": 475
+                                          },
+                                          "end_mark": {
+                                            "line": 21,
+                                            "column": 16,
+                                            "pointer": 479
+                                          },
+                                          "unique_id": "node_45"
+                                        },
+                                        {
+                                          "tag": "tag:yaml.org,2002:str",
+                                          "value": "integer",
+                                          "start_mark": {
+                                            "line": 21,
+                                            "column": 18,
+                                            "pointer": 481
+                                          },
+                                          "end_mark": {
+                                            "line": 21,
+                                            "column": 25,
+                                            "pointer": 488
+                                          },
+                                          "unique_id": "node_46"
+                                        }
+                                      ],
+                                      [
+                                        {
+                                          "tag": "tag:yaml.org,2002:str",
+                                          "value": "format",
+                                          "start_mark": {
+                                            "line": 22,
+                                            "column": 12,
+                                            "pointer": 501
+                                          },
+                                          "end_mark": {
+                                            "line": 22,
+                                            "column": 18,
+                                            "pointer": 507
+                                          },
+                                          "unique_id": "node_47"
+                                        },
+                                        {
+                                          "tag": "tag:yaml.org,2002:str",
+                                          "value": "int32",
+                                          "start_mark": {
+                                            "line": 22,
+                                            "column": 20,
+                                            "pointer": 509
+                                          },
+                                          "end_mark": {
+                                            "line": 22,
+                                            "column": 25,
+                                            "pointer": 514
+                                          },
+                                          "unique_id": "node_48"
+                                        }
+                                      ]
+                                    ],
+                                    "start_mark": {
+                                      "line": 21,
+                                      "column": 12,
+                                      "pointer": 475
+                                    },
+                                    "end_mark": {
+                                      "line": 23,
+                                      "column": 6,
+                                      "pointer": 521
+                                    },
+                                    "flow_style": false,
+                                    "unique_id": "node_44"
+                                  }
+                                ]
+                              ],
+                              "start_mark": {
+                                "line": 16,
+                                "column": 10,
+                                "pointer": 353
+                              },
+                              "end_mark": {
+                                "line": 23,
+                                "column": 6,
+                                "pointer": 521
+                              },
+                              "flow_style": false,
+                              "unique_id": "node_34"
+                            }
+                          ],
+                          "start_mark": {
+                            "line": 16,
+                            "column": 8,
+                            "pointer": 351
+                          },
+                          "end_mark": {
+                            "line": 23,
+                            "column": 6,
+                            "pointer": 521
+                          },
+                          "flow_style": false,
+                          "unique_id": "node_33"
+                        }
+                      ],
+                      [
+                        {
+                          "tag": "tag:yaml.org,2002:str",
+                          "value": "responses",
+                          "start_mark": {
+                            "line": 23,
+                            "column": 6,
+                            "pointer": 521
+                          },
+                          "end_mark": {
+                            "line": 23,
+                            "column": 15,
+                            "pointer": 530
+                          },
+                          "unique_id": "node_49"
+                        },
+                        {
+                          "tag": "tag:yaml.org,2002:map",
+                          "value": [
+                            [
+                              {
+                                "tag": "tag:yaml.org,2002:str",
+                                "value": "200",
+                                "start_mark": {
+                                  "line": 24,
+                                  "column": 8,
+                                  "pointer": 540
+                                },
+                                "end_mark": {
+                                  "line": 24,
+                                  "column": 13,
+                                  "pointer": 545
+                                },
+                                "style": "'",
+                                "unique_id": "node_51"
+                              },
+                              {
+                                "tag": "tag:yaml.org,2002:map",
+                                "value": [
+                                  [
+                                    {
+                                      "tag": "tag:yaml.org,2002:str",
+                                      "value": "description",
+                                      "start_mark": {
+                                        "line": 25,
+                                        "column": 10,
+                                        "pointer": 557
+                                      },
+                                      "end_mark": {
+                                        "line": 25,
+                                        "column": 21,
+                                        "pointer": 568
+                                      },
+                                      "unique_id": "node_53"
+                                    },
+                                    {
+                                      "tag": "tag:yaml.org,2002:str",
+                                      "value": "Sample response: Details about a user by ID",
+                                      "start_mark": {
+                                        "line": 25,
+                                        "column": 23,
+                                        "pointer": 570
+                                      },
+                                      "end_mark": {
+                                        "line": 25,
+                                        "column": 68,
+                                        "pointer": 615
+                                      },
+                                      "style": "'",
+                                      "unique_id": "node_54"
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "tag": "tag:yaml.org,2002:str",
+                                      "value": "headers",
+                                      "start_mark": {
+                                        "line": 26,
+                                        "column": 10,
+                                        "pointer": 626
+                                      },
+                                      "end_mark": {
+                                        "line": 26,
+                                        "column": 17,
+                                        "pointer": 633
+                                      },
+                                      "unique_id": "node_55"
+                                    },
+                                    {
+                                      "tag": "tag:yaml.org,2002:map",
+                                      "value": [
+                                        [
+                                          {
+                                            "tag": "tag:yaml.org,2002:str",
+                                            "value": "x-next",
+                                            "start_mark": {
+                                              "line": 27,
+                                              "column": 12,
+                                              "pointer": 647
+                                            },
+                                            "end_mark": {
+                                              "line": 27,
+                                              "column": 18,
+                                              "pointer": 653
+                                            },
+                                            "unique_id": "node_57"
+                                          },
+                                          {
+                                            "tag": "tag:yaml.org,2002:map",
+                                            "value": [
+                                              [
+                                                {
+                                                  "tag": "tag:yaml.org,2002:str",
+                                                  "value": "description",
+                                                  "start_mark": {
+                                                    "line": 28,
+                                                    "column": 14,
+                                                    "pointer": 669
+                                                  },
+                                                  "end_mark": {
+                                                    "line": 28,
+                                                    "column": 25,
+                                                    "pointer": 680
+                                                  },
+                                                  "unique_id": "node_59"
+                                                },
+                                                {
+                                                  "tag": "tag:yaml.org,2002:str",
+                                                  "value": "A link to the next page of responses",
+                                                  "start_mark": {
+                                                    "line": 28,
+                                                    "column": 27,
+                                                    "pointer": 682
+                                                  },
+                                                  "end_mark": {
+                                                    "line": 28,
+                                                    "column": 63,
+                                                    "pointer": 718
+                                                  },
+                                                  "unique_id": "node_60"
+                                                }
+                                              ],
+                                              [
+                                                {
+                                                  "tag": "tag:yaml.org,2002:str",
+                                                  "value": "schema",
+                                                  "start_mark": {
+                                                    "line": 29,
+                                                    "column": 14,
+                                                    "pointer": 733
+                                                  },
+                                                  "end_mark": {
+                                                    "line": 29,
+                                                    "column": 20,
+                                                    "pointer": 739
+                                                  },
+                                                  "unique_id": "node_61"
+                                                },
+                                                {
+                                                  "tag": "tag:yaml.org,2002:map",
+                                                  "value": [
+                                                    [
+                                                      {
+                                                        "tag": "tag:yaml.org,2002:str",
+                                                        "value": "type",
+                                                        "start_mark": {
+                                                          "line": 30,
+                                                          "column": 16,
+                                                          "pointer": 757
+                                                        },
+                                                        "end_mark": {
+                                                          "line": 30,
+                                                          "column": 20,
+                                                          "pointer": 761
+                                                        },
+                                                        "unique_id": "node_63"
+                                                      },
+                                                      {
+                                                        "tag": "tag:yaml.org,2002:str",
+                                                        "value": "string",
+                                                        "start_mark": {
+                                                          "line": 30,
+                                                          "column": 22,
+                                                          "pointer": 763
+                                                        },
+                                                        "end_mark": {
+                                                          "line": 30,
+                                                          "column": 28,
+                                                          "pointer": 769
+                                                        },
+                                                        "unique_id": "node_64"
+                                                      }
+                                                    ]
+                                                  ],
+                                                  "start_mark": {
+                                                    "line": 30,
+                                                    "column": 16,
+                                                    "pointer": 757
+                                                  },
+                                                  "end_mark": {
+                                                    "line": 31,
+                                                    "column": 10,
+                                                    "pointer": 780
+                                                  },
+                                                  "flow_style": false,
+                                                  "unique_id": "node_62"
+                                                }
+                                              ]
+                                            ],
+                                            "start_mark": {
+                                              "line": 28,
+                                              "column": 14,
+                                              "pointer": 669
+                                            },
+                                            "end_mark": {
+                                              "line": 31,
+                                              "column": 10,
+                                              "pointer": 780
+                                            },
+                                            "flow_style": false,
+                                            "unique_id": "node_58"
+                                          }
+                                        ]
+                                      ],
+                                      "start_mark": {
+                                        "line": 27,
+                                        "column": 12,
+                                        "pointer": 647
+                                      },
+                                      "end_mark": {
+                                        "line": 31,
+                                        "column": 10,
+                                        "pointer": 780
+                                      },
+                                      "flow_style": false,
+                                      "unique_id": "node_56"
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "tag": "tag:yaml.org,2002:str",
+                                      "value": "content",
+                                      "start_mark": {
+                                        "line": 31,
+                                        "column": 10,
+                                        "pointer": 780
+                                      },
+                                      "end_mark": {
+                                        "line": 31,
+                                        "column": 17,
+                                        "pointer": 787
+                                      },
+                                      "unique_id": "node_65"
+                                    },
+                                    {
+                                      "tag": "tag:yaml.org,2002:map",
+                                      "value": [
+                                        [
+                                          {
+                                            "tag": "tag:yaml.org,2002:str",
+                                            "value": "application/json",
+                                            "start_mark": {
+                                              "line": 32,
+                                              "column": 12,
+                                              "pointer": 801
+                                            },
+                                            "end_mark": {
+                                              "line": 32,
+                                              "column": 28,
+                                              "pointer": 817
+                                            },
+                                            "unique_id": "node_67"
+                                          },
+                                          {
+                                            "tag": "tag:yaml.org,2002:map",
+                                            "value": [
+                                              [
+                                                {
+                                                  "tag": "tag:yaml.org,2002:str",
+                                                  "value": "schema",
+                                                  "start_mark": {
+                                                    "line": 33,
+                                                    "column": 14,
+                                                    "pointer": 833
+                                                  },
+                                                  "end_mark": {
+                                                    "line": 33,
+                                                    "column": 20,
+                                                    "pointer": 839
+                                                  },
+                                                  "unique_id": "node_69"
+                                                },
+                                                {
+                                                  "tag": "tag:yaml.org,2002:map",
+                                                  "value": [
+                                                    [
+                                                      {
+                                                        "tag": "tag:yaml.org,2002:str",
+                                                        "value": "$ref",
+                                                        "start_mark": {
+                                                          "line": 34,
+                                                          "column": 16,
+                                                          "pointer": 857
+                                                        },
+                                                        "end_mark": {
+                                                          "line": 34,
+                                                          "column": 20,
+                                                          "pointer": 861
+                                                        },
+                                                        "unique_id": "node_71"
+                                                      },
+                                                      {
+                                                        "tag": "tag:yaml.org,2002:str",
+                                                        "value": "#/components/schemas/User",
+                                                        "start_mark": {
+                                                          "line": 34,
+                                                          "column": 22,
+                                                          "pointer": 863
+                                                        },
+                                                        "end_mark": {
+                                                          "line": 34,
+                                                          "column": 49,
+                                                          "pointer": 890
+                                                        },
+                                                        "style": "'",
+                                                        "unique_id": "node_72"
+                                                      }
+                                                    ]
+                                                  ],
+                                                  "start_mark": {
+                                                    "line": 34,
+                                                    "column": 16,
+                                                    "pointer": 857
+                                                  },
+                                                  "end_mark": {
+                                                    "line": 35,
+                                                    "column": 8,
+                                                    "pointer": 899
+                                                  },
+                                                  "flow_style": false,
+                                                  "unique_id": "node_70"
+                                                }
+                                              ]
+                                            ],
+                                            "start_mark": {
+                                              "line": 33,
+                                              "column": 14,
+                                              "pointer": 833
+                                            },
+                                            "end_mark": {
+                                              "line": 35,
+                                              "column": 8,
+                                              "pointer": 899
+                                            },
+                                            "flow_style": false,
+                                            "unique_id": "node_68"
+                                          }
+                                        ]
+                                      ],
+                                      "start_mark": {
+                                        "line": 32,
+                                        "column": 12,
+                                        "pointer": 801
+                                      },
+                                      "end_mark": {
+                                        "line": 35,
+                                        "column": 8,
+                                        "pointer": 899
+                                      },
+                                      "flow_style": false,
+                                      "unique_id": "node_66"
+                                    }
+                                  ]
+                                ],
+                                "start_mark": {
+                                  "line": 25,
+                                  "column": 10,
+                                  "pointer": 557
+                                },
+                                "end_mark": {
+                                  "line": 35,
+                                  "column": 8,
+                                  "pointer": 899
+                                },
+                                "flow_style": false,
+                                "unique_id": "node_52"
+                              }
+                            ],
+                            [
+                              {
+                                "tag": "tag:yaml.org,2002:str",
+                                "value": "default",
+                                "start_mark": {
+                                  "line": 35,
+                                  "column": 8,
+                                  "pointer": 899
+                                },
+                                "end_mark": {
+                                  "line": 35,
+                                  "column": 15,
+                                  "pointer": 906
+                                },
+                                "unique_id": "node_73"
+                              },
+                              {
+                                "tag": "tag:yaml.org,2002:map",
+                                "value": [
+                                  [
+                                    {
+                                      "tag": "tag:yaml.org,2002:str",
+                                      "value": "description",
+                                      "start_mark": {
+                                        "line": 36,
+                                        "column": 10,
+                                        "pointer": 918
+                                      },
+                                      "end_mark": {
+                                        "line": 36,
+                                        "column": 21,
+                                        "pointer": 929
+                                      },
+                                      "unique_id": "node_75"
+                                    },
+                                    {
+                                      "tag": "tag:yaml.org,2002:str",
+                                      "value": "Unexpected error",
+                                      "start_mark": {
+                                        "line": 36,
+                                        "column": 23,
+                                        "pointer": 931
+                                      },
+                                      "end_mark": {
+                                        "line": 36,
+                                        "column": 39,
+                                        "pointer": 947
+                                      },
+                                      "unique_id": "node_76"
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "tag": "tag:yaml.org,2002:str",
+                                      "value": "content",
+                                      "start_mark": {
+                                        "line": 37,
+                                        "column": 10,
+                                        "pointer": 958
+                                      },
+                                      "end_mark": {
+                                        "line": 37,
+                                        "column": 17,
+                                        "pointer": 965
+                                      },
+                                      "unique_id": "node_77"
+                                    },
+                                    {
+                                      "tag": "tag:yaml.org,2002:map",
+                                      "value": [
+                                        [
+                                          {
+                                            "tag": "tag:yaml.org,2002:str",
+                                            "value": "application/json",
+                                            "start_mark": {
+                                              "line": 38,
+                                              "column": 12,
+                                              "pointer": 979
+                                            },
+                                            "end_mark": {
+                                              "line": 38,
+                                              "column": 28,
+                                              "pointer": 995
+                                            },
+                                            "unique_id": "node_79"
+                                          },
+                                          {
+                                            "tag": "tag:yaml.org,2002:map",
+                                            "value": [
+                                              [
+                                                {
+                                                  "tag": "tag:yaml.org,2002:str",
+                                                  "value": "schema",
+                                                  "start_mark": {
+                                                    "line": 39,
+                                                    "column": 14,
+                                                    "pointer": 1011
+                                                  },
+                                                  "end_mark": {
+                                                    "line": 39,
+                                                    "column": 20,
+                                                    "pointer": 1017
+                                                  },
+                                                  "unique_id": "node_81"
+                                                },
+                                                {
+                                                  "tag": "tag:yaml.org,2002:map",
+                                                  "value": [
+                                                    [
+                                                      {
+                                                        "tag": "tag:yaml.org,2002:str",
+                                                        "value": "$ref",
+                                                        "start_mark": {
+                                                          "line": 40,
+                                                          "column": 16,
+                                                          "pointer": 1035
+                                                        },
+                                                        "end_mark": {
+                                                          "line": 40,
+                                                          "column": 20,
+                                                          "pointer": 1039
+                                                        },
+                                                        "unique_id": "node_83"
+                                                      },
+                                                      {
+                                                        "tag": "tag:yaml.org,2002:str",
+                                                        "value": "#/components/schemas/Error",
+                                                        "start_mark": {
+                                                          "line": 40,
+                                                          "column": 22,
+                                                          "pointer": 1041
+                                                        },
+                                                        "end_mark": {
+                                                          "line": 40,
+                                                          "column": 50,
+                                                          "pointer": 1069
+                                                        },
+                                                        "style": "'",
+                                                        "unique_id": "node_84"
+                                                      }
+                                                    ]
+                                                  ],
+                                                  "start_mark": {
+                                                    "line": 40,
+                                                    "column": 16,
+                                                    "pointer": 1035
+                                                  },
+                                                  "end_mark": {
+                                                    "line": 41,
+                                                    "column": 0,
+                                                    "pointer": 1070
+                                                  },
+                                                  "flow_style": false,
+                                                  "unique_id": "node_82"
+                                                }
+                                              ]
+                                            ],
+                                            "start_mark": {
+                                              "line": 39,
+                                              "column": 14,
+                                              "pointer": 1011
+                                            },
+                                            "end_mark": {
+                                              "line": 41,
+                                              "column": 0,
+                                              "pointer": 1070
+                                            },
+                                            "flow_style": false,
+                                            "unique_id": "node_80"
+                                          }
+                                        ]
+                                      ],
+                                      "start_mark": {
+                                        "line": 38,
+                                        "column": 12,
+                                        "pointer": 979
+                                      },
+                                      "end_mark": {
+                                        "line": 41,
+                                        "column": 0,
+                                        "pointer": 1070
+                                      },
+                                      "flow_style": false,
+                                      "unique_id": "node_78"
+                                    }
+                                  ]
+                                ],
+                                "start_mark": {
+                                  "line": 36,
+                                  "column": 10,
+                                  "pointer": 918
+                                },
+                                "end_mark": {
+                                  "line": 41,
+                                  "column": 0,
+                                  "pointer": 1070
+                                },
+                                "flow_style": false,
+                                "unique_id": "node_74"
+                              }
+                            ]
+                          ],
+                          "start_mark": {
+                            "line": 24,
+                            "column": 8,
+                            "pointer": 540
+                          },
+                          "end_mark": {
+                            "line": 41,
+                            "column": 0,
+                            "pointer": 1070
+                          },
+                          "flow_style": false,
+                          "unique_id": "node_50"
+                        }
+                      ]
+                    ],
+                    "start_mark": {
+                      "line": 9,
+                      "column": 6,
+                      "pointer": 140
+                    },
+                    "end_mark": {
+                      "line": 41,
+                      "column": 0,
+                      "pointer": 1070
+                    },
+                    "flow_style": false,
+                    "unique_id": "node_19"
+                  }
+                ]
+              ],
+              "start_mark": {
+                "line": 8,
+                "column": 4,
+                "pointer": 129
+              },
+              "end_mark": {
+                "line": 41,
+                "column": 0,
+                "pointer": 1070
+              },
+              "flow_style": false,
+              "unique_id": "node_17"
+            }
+          ]
+        ],
+        "start_mark": {
+          "line": 7,
+          "column": 2,
+          "pointer": 118
+        },
+        "end_mark": {
+          "line": 41,
+          "column": 0,
+          "pointer": 1070
+        },
+        "flow_style": false,
+        "unique_id": "node_15"
+      }
+    ],
+    [
+      {
+        "tag": "tag:yaml.org,2002:str",
+        "value": "components",
+        "start_mark": {
+          "line": 41,
+          "column": 0,
+          "pointer": 1070
+        },
+        "end_mark": {
+          "line": 41,
+          "column": 10,
+          "pointer": 1080
+        },
+        "unique_id": "node_85"
+      },
+      {
+        "tag": "tag:yaml.org,2002:map",
+        "value": [
+          [
+            {
+              "tag": "tag:yaml.org,2002:str",
+              "value": "schemas",
+              "start_mark": {
+                "line": 42,
+                "column": 2,
+                "pointer": 1084
+              },
+              "end_mark": {
+                "line": 42,
+                "column": 9,
+                "pointer": 1091
+              },
+              "unique_id": "node_87"
+            },
+            {
+              "tag": "tag:yaml.org,2002:map",
+              "value": [
+                [
+                  {
+                    "tag": "tag:yaml.org,2002:str",
+                    "value": "User",
+                    "start_mark": {
+                      "line": 43,
+                      "column": 4,
+                      "pointer": 1097
+                    },
+                    "end_mark": {
+                      "line": 43,
+                      "column": 8,
+                      "pointer": 1101
+                    },
+                    "unique_id": "node_89"
+                  },
+                  {
+                    "tag": "tag:yaml.org,2002:map",
+                    "value": [
+                      [
+                        {
+                          "tag": "tag:yaml.org,2002:str",
+                          "value": "type",
+                          "start_mark": {
+                            "line": 44,
+                            "column": 6,
+                            "pointer": 1109
+                          },
+                          "end_mark": {
+                            "line": 44,
+                            "column": 10,
+                            "pointer": 1113
+                          },
+                          "unique_id": "node_91"
+                        },
+                        {
+                          "tag": "tag:yaml.org,2002:str",
+                          "value": "object",
+                          "start_mark": {
+                            "line": 44,
+                            "column": 12,
+                            "pointer": 1115
+                          },
+                          "end_mark": {
+                            "line": 44,
+                            "column": 18,
+                            "pointer": 1121
+                          },
+                          "unique_id": "node_92"
+                        }
+                      ],
+                      [
+                        {
+                          "tag": "tag:yaml.org,2002:str",
+                          "value": "required",
+                          "start_mark": {
+                            "line": 45,
+                            "column": 6,
+                            "pointer": 1128
+                          },
+                          "end_mark": {
+                            "line": 45,
+                            "column": 14,
+                            "pointer": 1136
+                          },
+                          "unique_id": "node_93"
+                        },
+                        {
+                          "tag": "tag:yaml.org,2002:seq",
+                          "value": [
+                            {
+                              "tag": "tag:yaml.org,2002:str",
+                              "value": "id",
+                              "start_mark": {
+                                "line": 46,
+                                "column": 10,
+                                "pointer": 1148
+                              },
+                              "end_mark": {
+                                "line": 46,
+                                "column": 12,
+                                "pointer": 1150
+                              },
+                              "unique_id": "node_95"
+                            },
+                            {
+                              "tag": "tag:yaml.org,2002:str",
+                              "value": "name",
+                              "start_mark": {
+                                "line": 47,
+                                "column": 10,
+                                "pointer": 1161
+                              },
+                              "end_mark": {
+                                "line": 47,
+                                "column": 14,
+                                "pointer": 1165
+                              },
+                              "unique_id": "node_96"
+                            }
+                          ],
+                          "start_mark": {
+                            "line": 46,
+                            "column": 8,
+                            "pointer": 1146
+                          },
+                          "end_mark": {
+                            "line": 48,
+                            "column": 6,
+                            "pointer": 1172
+                          },
+                          "flow_style": false,
+                          "unique_id": "node_94"
+                        }
+                      ],
+                      [
+                        {
+                          "tag": "tag:yaml.org,2002:str",
+                          "value": "properties",
+                          "start_mark": {
+                            "line": 48,
+                            "column": 6,
+                            "pointer": 1172
+                          },
+                          "end_mark": {
+                            "line": 48,
+                            "column": 16,
+                            "pointer": 1182
+                          },
+                          "unique_id": "node_97"
+                        },
+                        {
+                          "tag": "tag:yaml.org,2002:map",
+                          "value": [
+                            [
+                              {
+                                "tag": "tag:yaml.org,2002:str",
+                                "value": "id",
+                                "start_mark": {
+                                  "line": 49,
+                                  "column": 8,
+                                  "pointer": 1192
+                                },
+                                "end_mark": {
+                                  "line": 49,
+                                  "column": 10,
+                                  "pointer": 1194
+                                },
+                                "unique_id": "node_99"
+                              },
+                              {
+                                "tag": "tag:yaml.org,2002:map",
+                                "value": [
+                                  [
+                                    {
+                                      "tag": "tag:yaml.org,2002:str",
+                                      "value": "type",
+                                      "start_mark": {
+                                        "line": 50,
+                                        "column": 10,
+                                        "pointer": 1206
+                                      },
+                                      "end_mark": {
+                                        "line": 50,
+                                        "column": 14,
+                                        "pointer": 1210
+                                      },
+                                      "unique_id": "node_101"
+                                    },
+                                    {
+                                      "tag": "tag:yaml.org,2002:str",
+                                      "value": "integer",
+                                      "start_mark": {
+                                        "line": 50,
+                                        "column": 16,
+                                        "pointer": 1212
+                                      },
+                                      "end_mark": {
+                                        "line": 50,
+                                        "column": 23,
+                                        "pointer": 1219
+                                      },
+                                      "unique_id": "node_102"
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "tag": "tag:yaml.org,2002:str",
+                                      "value": "format",
+                                      "start_mark": {
+                                        "line": 51,
+                                        "column": 10,
+                                        "pointer": 1230
+                                      },
+                                      "end_mark": {
+                                        "line": 51,
+                                        "column": 16,
+                                        "pointer": 1236
+                                      },
+                                      "unique_id": "node_103"
+                                    },
+                                    {
+                                      "tag": "tag:yaml.org,2002:str",
+                                      "value": "int64",
+                                      "start_mark": {
+                                        "line": 51,
+                                        "column": 18,
+                                        "pointer": 1238
+                                      },
+                                      "end_mark": {
+                                        "line": 51,
+                                        "column": 23,
+                                        "pointer": 1243
+                                      },
+                                      "unique_id": "node_104"
+                                    }
+                                  ]
+                                ],
+                                "start_mark": {
+                                  "line": 50,
+                                  "column": 10,
+                                  "pointer": 1206
+                                },
+                                "end_mark": {
+                                  "line": 52,
+                                  "column": 8,
+                                  "pointer": 1252
+                                },
+                                "flow_style": false,
+                                "unique_id": "node_100"
+                              }
+                            ],
+                            [
+                              {
+                                "tag": "tag:yaml.org,2002:str",
+                                "value": "name",
+                                "start_mark": {
+                                  "line": 52,
+                                  "column": 8,
+                                  "pointer": 1252
+                                },
+                                "end_mark": {
+                                  "line": 52,
+                                  "column": 12,
+                                  "pointer": 1256
+                                },
+                                "unique_id": "node_105"
+                              },
+                              {
+                                "tag": "tag:yaml.org,2002:map",
+                                "value": [
+                                  [
+                                    {
+                                      "tag": "tag:yaml.org,2002:str",
+                                      "value": "type",
+                                      "start_mark": {
+                                        "line": 53,
+                                        "column": 10,
+                                        "pointer": 1268
+                                      },
+                                      "end_mark": {
+                                        "line": 53,
+                                        "column": 14,
+                                        "pointer": 1272
+                                      },
+                                      "unique_id": "node_107"
+                                    },
+                                    {
+                                      "tag": "tag:yaml.org,2002:str",
+                                      "value": "string",
+                                      "start_mark": {
+                                        "line": 53,
+                                        "column": 16,
+                                        "pointer": 1274
+                                      },
+                                      "end_mark": {
+                                        "line": 53,
+                                        "column": 22,
+                                        "pointer": 1280
+                                      },
+                                      "unique_id": "node_108"
+                                    }
+                                  ]
+                                ],
+                                "start_mark": {
+                                  "line": 53,
+                                  "column": 10,
+                                  "pointer": 1268
+                                },
+                                "end_mark": {
+                                  "line": 54,
+                                  "column": 8,
+                                  "pointer": 1289
+                                },
+                                "flow_style": false,
+                                "unique_id": "node_106"
+                              }
+                            ],
+                            [
+                              {
+                                "tag": "tag:yaml.org,2002:str",
+                                "value": "tag",
+                                "start_mark": {
+                                  "line": 54,
+                                  "column": 8,
+                                  "pointer": 1289
+                                },
+                                "end_mark": {
+                                  "line": 54,
+                                  "column": 11,
+                                  "pointer": 1292
+                                },
+                                "unique_id": "node_109"
+                              },
+                              {
+                                "tag": "tag:yaml.org,2002:map",
+                                "value": [
+                                  [
+                                    {
+                                      "tag": "tag:yaml.org,2002:str",
+                                      "value": "type",
+                                      "start_mark": {
+                                        "line": 55,
+                                        "column": 10,
+                                        "pointer": 1304
+                                      },
+                                      "end_mark": {
+                                        "line": 55,
+                                        "column": 14,
+                                        "pointer": 1308
+                                      },
+                                      "unique_id": "node_111"
+                                    },
+                                    {
+                                      "tag": "tag:yaml.org,2002:str",
+                                      "value": "string",
+                                      "start_mark": {
+                                        "line": 55,
+                                        "column": 16,
+                                        "pointer": 1310
+                                      },
+                                      "end_mark": {
+                                        "line": 55,
+                                        "column": 22,
+                                        "pointer": 1316
+                                      },
+                                      "unique_id": "node_112"
+                                    }
+                                  ]
+                                ],
+                                "start_mark": {
+                                  "line": 55,
+                                  "column": 10,
+                                  "pointer": 1304
+                                },
+                                "end_mark": {
+                                  "line": 56,
+                                  "column": 4,
+                                  "pointer": 1321
+                                },
+                                "flow_style": false,
+                                "unique_id": "node_110"
+                              }
+                            ]
+                          ],
+                          "start_mark": {
+                            "line": 49,
+                            "column": 8,
+                            "pointer": 1192
+                          },
+                          "end_mark": {
+                            "line": 56,
+                            "column": 4,
+                            "pointer": 1321
+                          },
+                          "flow_style": false,
+                          "unique_id": "node_98"
+                        }
+                      ]
+                    ],
+                    "start_mark": {
+                      "line": 44,
+                      "column": 6,
+                      "pointer": 1109
+                    },
+                    "end_mark": {
+                      "line": 56,
+                      "column": 4,
+                      "pointer": 1321
+                    },
+                    "flow_style": false,
+                    "unique_id": "node_90"
+                  }
+                ],
+                [
+                  {
+                    "tag": "tag:yaml.org,2002:str",
+                    "value": "Error",
+                    "start_mark": {
+                      "line": 56,
+                      "column": 4,
+                      "pointer": 1321
+                    },
+                    "end_mark": {
+                      "line": 56,
+                      "column": 9,
+                      "pointer": 1326
+                    },
+                    "unique_id": "node_113"
+                  },
+                  {
+                    "tag": "tag:yaml.org,2002:map",
+                    "value": [
+                      [
+                        {
+                          "tag": "tag:yaml.org,2002:str",
+                          "value": "type",
+                          "start_mark": {
+                            "line": 57,
+                            "column": 6,
+                            "pointer": 1334
+                          },
+                          "end_mark": {
+                            "line": 57,
+                            "column": 10,
+                            "pointer": 1338
+                          },
+                          "unique_id": "node_115"
+                        },
+                        {
+                          "tag": "tag:yaml.org,2002:str",
+                          "value": "object",
+                          "start_mark": {
+                            "line": 57,
+                            "column": 12,
+                            "pointer": 1340
+                          },
+                          "end_mark": {
+                            "line": 57,
+                            "column": 18,
+                            "pointer": 1346
+                          },
+                          "unique_id": "node_116"
+                        }
+                      ],
+                      [
+                        {
+                          "tag": "tag:yaml.org,2002:str",
+                          "value": "required",
+                          "start_mark": {
+                            "line": 58,
+                            "column": 6,
+                            "pointer": 1353
+                          },
+                          "end_mark": {
+                            "line": 58,
+                            "column": 14,
+                            "pointer": 1361
+                          },
+                          "unique_id": "node_117"
+                        },
+                        {
+                          "tag": "tag:yaml.org,2002:seq",
+                          "value": [
+                            {
+                              "tag": "tag:yaml.org,2002:str",
+                              "value": "code",
+                              "start_mark": {
+                                "line": 59,
+                                "column": 10,
+                                "pointer": 1373
+                              },
+                              "end_mark": {
+                                "line": 59,
+                                "column": 14,
+                                "pointer": 1377
+                              },
+                              "unique_id": "node_119"
+                            },
+                            {
+                              "tag": "tag:yaml.org,2002:str",
+                              "value": "message",
+                              "start_mark": {
+                                "line": 60,
+                                "column": 10,
+                                "pointer": 1388
+                              },
+                              "end_mark": {
+                                "line": 60,
+                                "column": 17,
+                                "pointer": 1395
+                              },
+                              "unique_id": "node_120"
+                            }
+                          ],
+                          "start_mark": {
+                            "line": 59,
+                            "column": 8,
+                            "pointer": 1371
+                          },
+                          "end_mark": {
+                            "line": 61,
+                            "column": 6,
+                            "pointer": 1402
+                          },
+                          "flow_style": false,
+                          "unique_id": "node_118"
+                        }
+                      ],
+                      [
+                        {
+                          "tag": "tag:yaml.org,2002:str",
+                          "value": "properties",
+                          "start_mark": {
+                            "line": 61,
+                            "column": 6,
+                            "pointer": 1402
+                          },
+                          "end_mark": {
+                            "line": 61,
+                            "column": 16,
+                            "pointer": 1412
+                          },
+                          "unique_id": "node_121"
+                        },
+                        {
+                          "tag": "tag:yaml.org,2002:map",
+                          "value": [
+                            [
+                              {
+                                "tag": "tag:yaml.org,2002:str",
+                                "value": "code",
+                                "start_mark": {
+                                  "line": 62,
+                                  "column": 8,
+                                  "pointer": 1422
+                                },
+                                "end_mark": {
+                                  "line": 62,
+                                  "column": 12,
+                                  "pointer": 1426
+                                },
+                                "unique_id": "node_123"
+                              },
+                              {
+                                "tag": "tag:yaml.org,2002:map",
+                                "value": [
+                                  [
+                                    {
+                                      "tag": "tag:yaml.org,2002:str",
+                                      "value": "type",
+                                      "start_mark": {
+                                        "line": 63,
+                                        "column": 10,
+                                        "pointer": 1438
+                                      },
+                                      "end_mark": {
+                                        "line": 63,
+                                        "column": 14,
+                                        "pointer": 1442
+                                      },
+                                      "unique_id": "node_125"
+                                    },
+                                    {
+                                      "tag": "tag:yaml.org,2002:str",
+                                      "value": "integer",
+                                      "start_mark": {
+                                        "line": 63,
+                                        "column": 16,
+                                        "pointer": 1444
+                                      },
+                                      "end_mark": {
+                                        "line": 63,
+                                        "column": 23,
+                                        "pointer": 1451
+                                      },
+                                      "unique_id": "node_126"
+                                    }
+                                  ],
+                                  [
+                                    {
+                                      "tag": "tag:yaml.org,2002:str",
+                                      "value": "format",
+                                      "start_mark": {
+                                        "line": 64,
+                                        "column": 10,
+                                        "pointer": 1462
+                                      },
+                                      "end_mark": {
+                                        "line": 64,
+                                        "column": 16,
+                                        "pointer": 1468
+                                      },
+                                      "unique_id": "node_127"
+                                    },
+                                    {
+                                      "tag": "tag:yaml.org,2002:str",
+                                      "value": "int32",
+                                      "start_mark": {
+                                        "line": 64,
+                                        "column": 18,
+                                        "pointer": 1470
+                                      },
+                                      "end_mark": {
+                                        "line": 64,
+                                        "column": 23,
+                                        "pointer": 1475
+                                      },
+                                      "unique_id": "node_128"
+                                    }
+                                  ]
+                                ],
+                                "start_mark": {
+                                  "line": 63,
+                                  "column": 10,
+                                  "pointer": 1438
+                                },
+                                "end_mark": {
+                                  "line": 65,
+                                  "column": 8,
+                                  "pointer": 1484
+                                },
+                                "flow_style": false,
+                                "unique_id": "node_124"
+                              }
+                            ],
+                            [
+                              {
+                                "tag": "tag:yaml.org,2002:str",
+                                "value": "message",
+                                "start_mark": {
+                                  "line": 65,
+                                  "column": 8,
+                                  "pointer": 1484
+                                },
+                                "end_mark": {
+                                  "line": 65,
+                                  "column": 15,
+                                  "pointer": 1491
+                                },
+                                "unique_id": "node_129"
+                              },
+                              {
+                                "tag": "tag:yaml.org,2002:map",
+                                "value": [
+                                  [
+                                    {
+                                      "tag": "tag:yaml.org,2002:str",
+                                      "value": "type",
+                                      "start_mark": {
+                                        "line": 66,
+                                        "column": 10,
+                                        "pointer": 1503
+                                      },
+                                      "end_mark": {
+                                        "line": 66,
+                                        "column": 14,
+                                        "pointer": 1507
+                                      },
+                                      "unique_id": "node_131"
+                                    },
+                                    {
+                                      "tag": "tag:yaml.org,2002:str",
+                                      "value": "string",
+                                      "start_mark": {
+                                        "line": 66,
+                                        "column": 16,
+                                        "pointer": 1509
+                                      },
+                                      "end_mark": {
+                                        "line": 66,
+                                        "column": 22,
+                                        "pointer": 1515
+                                      },
+                                      "unique_id": "node_132"
+                                    }
+                                  ]
+                                ],
+                                "start_mark": {
+                                  "line": 66,
+                                  "column": 10,
+                                  "pointer": 1503
+                                },
+                                "end_mark": {
+                                  "line": 67,
+                                  "column": 2,
+                                  "pointer": 1518
+                                },
+                                "flow_style": false,
+                                "unique_id": "node_130"
+                              }
+                            ]
+                          ],
+                          "start_mark": {
+                            "line": 62,
+                            "column": 8,
+                            "pointer": 1422
+                          },
+                          "end_mark": {
+                            "line": 67,
+                            "column": 2,
+                            "pointer": 1518
+                          },
+                          "flow_style": false,
+                          "unique_id": "node_122"
+                        }
+                      ]
+                    ],
+                    "start_mark": {
+                      "line": 57,
+                      "column": 6,
+                      "pointer": 1334
+                    },
+                    "end_mark": {
+                      "line": 67,
+                      "column": 2,
+                      "pointer": 1518
+                    },
+                    "flow_style": false,
+                    "unique_id": "node_114"
+                  }
+                ]
+              ],
+              "start_mark": {
+                "line": 43,
+                "column": 4,
+                "pointer": 1097
+              },
+              "end_mark": {
+                "line": 67,
+                "column": 2,
+                "pointer": 1518
+              },
+              "flow_style": false,
+              "unique_id": "node_88"
+            }
+          ],
+          [
+            {
+              "tag": "tag:yaml.org,2002:str",
+              "value": "securitySchemes",
+              "start_mark": {
+                "line": 67,
+                "column": 2,
+                "pointer": 1518
+              },
+              "end_mark": {
+                "line": 67,
+                "column": 17,
+                "pointer": 1533
+              },
+              "unique_id": "node_133"
+            },
+            {
+              "tag": "tag:yaml.org,2002:map",
+              "value": [
+                [
+                  {
+                    "tag": "tag:yaml.org,2002:str",
+                    "value": "BasicAuth",
+                    "start_mark": {
+                      "line": 68,
+                      "column": 4,
+                      "pointer": 1539
+                    },
+                    "end_mark": {
+                      "line": 68,
+                      "column": 13,
+                      "pointer": 1548
+                    },
+                    "unique_id": "node_135"
+                  },
+                  {
+                    "tag": "tag:yaml.org,2002:map",
+                    "value": [
+                      [
+                        {
+                          "tag": "tag:yaml.org,2002:str",
+                          "value": "type",
+                          "start_mark": {
+                            "line": 69,
+                            "column": 6,
+                            "pointer": 1556
+                          },
+                          "end_mark": {
+                            "line": 69,
+                            "column": 10,
+                            "pointer": 1560
+                          },
+                          "unique_id": "node_137"
+                        },
+                        {
+                          "tag": "tag:yaml.org,2002:str",
+                          "value": "http",
+                          "start_mark": {
+                            "line": 69,
+                            "column": 12,
+                            "pointer": 1562
+                          },
+                          "end_mark": {
+                            "line": 69,
+                            "column": 16,
+                            "pointer": 1566
+                          },
+                          "unique_id": "node_138"
+                        }
+                      ],
+                      [
+                        {
+                          "tag": "tag:yaml.org,2002:str",
+                          "value": "scheme",
+                          "start_mark": {
+                            "line": 70,
+                            "column": 6,
+                            "pointer": 1573
+                          },
+                          "end_mark": {
+                            "line": 70,
+                            "column": 12,
+                            "pointer": 1579
+                          },
+                          "unique_id": "node_139"
+                        },
+                        {
+                          "tag": "tag:yaml.org,2002:str",
+                          "value": "basic",
+                          "start_mark": {
+                            "line": 70,
+                            "column": 14,
+                            "pointer": 1581
+                          },
+                          "end_mark": {
+                            "line": 70,
+                            "column": 19,
+                            "pointer": 1586
+                          },
+                          "unique_id": "node_140"
+                        }
+                      ]
+                    ],
+                    "start_mark": {
+                      "line": 69,
+                      "column": 6,
+                      "pointer": 1556
+                    },
+                    "end_mark": {
+                      "line": 71,
+                      "column": 0,
+                      "pointer": 1587
+                    },
+                    "flow_style": false,
+                    "unique_id": "node_136"
+                  }
+                ]
+              ],
+              "start_mark": {
+                "line": 68,
+                "column": 4,
+                "pointer": 1539
+              },
+              "end_mark": {
+                "line": 71,
+                "column": 0,
+                "pointer": 1587
+              },
+              "flow_style": false,
+              "unique_id": "node_134"
+            }
+          ]
+        ],
+        "start_mark": {
+          "line": 42,
+          "column": 2,
+          "pointer": 1084
+        },
+        "end_mark": {
+          "line": 71,
+          "column": 0,
+          "pointer": 1587
+        },
+        "flow_style": false,
+        "unique_id": "node_86"
+      }
+    ]
+  ],
+  "start_mark": {
+    "line": 0,
+    "column": 0,
+    "pointer": 0
+  },
+  "end_mark": {
+    "line": 71,
+    "column": 0,
+    "pointer": 1587
+  },
+  "flow_style": false,
+  "unique_id": "node_0"
+}
