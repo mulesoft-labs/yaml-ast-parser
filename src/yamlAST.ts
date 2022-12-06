@@ -39,6 +39,8 @@ export interface YAMLNode extends YAMLDocument{
      * @deprecated Inspect kind and cast to the appropriate subtype instead.
      */
     mappings?:any
+
+    location: { line: {start:number, end:number}, column: {start:number, end:number} }
 }
 
 export interface YAMLAnchorReference extends YAMLNode{
@@ -73,7 +75,17 @@ export function newMapping(key:YAMLScalar,value:YAMLNode):YAMLMapping{
       endPosition: end,
       kind: Kind.MAPPING,
       parent: null,
-      errors: []
+      errors: [],
+      location: {
+        line: {
+            start:  key.location.line.start,
+            end: (value && value.location.line.end) || -1
+        },
+        column: {
+            start: key.location.column.start,
+            end: (value && value.location.column.end) || -1
+        }
+      }
   };
   return node
 }
@@ -85,7 +97,11 @@ export function newAnchorRef(key:string,start:number,end:number,value:YAMLNode):
         startPosition:start,
         endPosition:end,
         kind:Kind.ANCHOR_REF,
-        parent:null
+        parent:null,
+        location: { 
+            line: { start: -1, end: -1 },
+            column: { start: -1, end: -1 }
+        }
     }
 }
 export function newScalar(v:string|boolean|number=""):YAMLScalar{
@@ -98,6 +114,10 @@ export function newScalar(v:string|boolean|number=""):YAMLScalar{
         parent:null,
         doubleQuoted:false,
         rawValue:""+v,
+        location: { 
+            line: { start: -1, end: -1 },
+            column: { start: -1, end: -1 }
+        }
     };
     if(typeof v !== "string"){
         result.valueObject = v;
@@ -111,7 +131,11 @@ export function newItems():YAMLSequence{
         endPosition:-1,
         items:[],
         kind:Kind.SEQ,
-        parent:null
+        parent:null,
+        location: { 
+            line: { start: -1, end: -1 },
+            column: { start: -1, end: -1 }
+        }
     }
 }
 export function newSeq():YAMLSequence{
@@ -124,6 +148,10 @@ export function newMap(mappings?: YAMLMapping[]):YamlMap{
         endPosition:-1,
         mappings: mappings ? mappings : [],
         kind:Kind.MAP,
-        parent:null
+        parent:null,
+        location: { 
+            line: { start: -1, end: -1 },
+            column: { start: -1, end: -1 }
+        }
     }
 }

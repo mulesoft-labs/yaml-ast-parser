@@ -31,6 +31,19 @@ var PATTERN_FLOW_INDICATORS       = /[,\[\]\{\}]/;
 var PATTERN_TAG_HANDLE            = /^(?:!|!!|![a-z\-]+!)$/i;
 var PATTERN_TAG_URI               = /^(?:!|[^,\[\]\{\}])(?:%[0-9a-f]{2}|[0-9a-z\-#;\/\?:@&=\+\$,_\.!~\*'\(\)\[\]])*$/i;
 
+let prevWordsEndPositionMap: {
+  [lineNumber: string]: {
+    endPosition: number,
+    endColumnNumber: number
+  }
+} = {}
+
+let blockStartPosition: {
+  [blockParentLineNumber: string]: {
+    startLineNumber: number;
+    startColumnNumber: number;
+  };
+} = {};
 
 function is_EOL(c) {
   return (c === 0x0A/* LF */) || (c === 0x0D/* CR */);
@@ -388,7 +401,28 @@ function storeMappingPair(state:State, _result:ast.YamlMap, keyTag, keyNode:ast.
         endPosition:valueNode.endPosition,
         parent:null,
         errors:[],
-        mappings: [],kind:ast.Kind.MAP};
+        mappings: [],kind:ast.Kind.MAP,
+        location: { 
+          line: { start: -1, end: -1 },
+          column: { start: -1, end: -1 }
+      }
+      };
+  }
+
+  if (valueNode && valueNode.kind === ast.Kind.MAP) {
+    // start line number for the block
+    const blockPosition = blockStartPosition[keyNode.location.line.start];
+
+    valueNode.location = {
+      line: {
+        start: (blockPosition && blockPosition.startLineNumber) || 0,
+        end: state.line
+      },
+      column: {
+        start: (blockPosition && blockPosition.startColumnNumber) || 0,
+        end: 0
+      }
+    };
   }
 
   // if ('tag:yaml.org,2002:merge' === keyTag) {
@@ -418,6 +452,18 @@ function storeMappingPair(state:State, _result:ast.YamlMap, keyTag, keyNode:ast.
       _result.mappings.push(mapping)
     _result.endPosition=valueNode? valueNode.endPosition : keyNode.endPosition+1; //FIXME.workaround should be position of ':' indeed
   // }
+
+  const firstNode = _result.mappings[0];
+
+  _result.location.line.start = firstNode
+    ? firstNode.key.location.line.start
+    : 0;
+  _result.location.line.end = state.line;
+  
+  _result.location.column.start = firstNode
+    ? firstNode.key.location.column.start
+    : 0;
+  _result.location.column.end = 0;
 
   return _result;
 }
@@ -834,6 +880,10 @@ function readFlowCollection(state:State, nodeIndent) {
     state.anchorMap[state.anchor] = _result;
   }
 
+  // adding location for values likes {}, []
+  _result.location.line.start = state.line;
+  _result.location.column.start = state.position - state.lineStart;
+
   ch = state.input.charCodeAt(++state.position);
 
   while (0 !== ch) {
@@ -848,6 +898,9 @@ function readFlowCollection(state:State, nodeIndent) {
       state.kind = isMapping ? 'mapping' : 'sequence';
       state.result = _result;
       _result.endPosition=state.position
+      // adding location for values likes {}, []
+      _result.location.line.end = state.line;
+      _result.location.column.end = state.position - state.lineStart;
       return true;
     } else if (!readNext) {
        var p=state.position
@@ -896,6 +949,8 @@ function readFlowCollection(state:State, nodeIndent) {
         }
         (<ast.YAMLSequence>_result).items.push(keyNode);
     }
+    computeSequenceNodeLocation(<ast.YAMLSequence>_result);
+
     _result.endPosition=state.position+1/*need to add one more char*/;
     skipSeparationSpace(state, true, nodeIndent);
 
@@ -1107,6 +1162,7 @@ function readBlockSequence(state:State, nodeIndent) {
     if (skipSeparationSpace(state, true, -1)) {
       if (state.lineIndent <= nodeIndent) {
         _result.items.push(null);
+        computeSequenceNodeLocation(_result);
         ch = state.input.charCodeAt(state.position);
         continue;
       }
@@ -1117,6 +1173,7 @@ function readBlockSequence(state:State, nodeIndent) {
     if(state.result) {
       state.result.parent = _result;
       _result.items.push(state.result);
+      computeSequenceNodeLocation(_result);
     }
     skipSeparationSpace(state, true, -1);
 
@@ -1475,6 +1532,7 @@ function composeNode(state:State, parentIndent, nodeContext, allowToSeek, allowC
       type,
       flowIndent,
       blockIndent,
+      blockParentLineNumber,
       _result;
 
   state.tag    = null;
@@ -1485,6 +1543,11 @@ function composeNode(state:State, parentIndent, nodeContext, allowToSeek, allowC
   allowBlockStyles = allowBlockScalars = allowBlockCollections =
     CONTEXT_BLOCK_OUT === nodeContext ||
     CONTEXT_BLOCK_IN  === nodeContext;
+
+  if (allowBlockCollections) {
+    blockParentLineNumber = state.line;
+  }
+  
 
   if (allowToSeek) {
     if (skipSeparationSpace(state, true, -1)) {
@@ -1533,6 +1596,13 @@ function composeNode(state:State, parentIndent, nodeContext, allowToSeek, allowC
     }
 
     blockIndent = state.position - state.lineStart;
+
+    if (CONTEXT_BLOCK_OUT === nodeContext && allowBlockCollections) {
+      blockStartPosition[blockParentLineNumber] = {
+        startLineNumber: state.line,
+        startColumnNumber: blockIndent,
+      };
+    }
 
     if (1 === indentStatus) {
       if (allowBlockCollections &&
@@ -1624,7 +1694,102 @@ function composeNode(state:State, parentIndent, nodeContext, allowToSeek, allowC
     }
   }
 
+  computeNodeLocation(state)
+
   return null !== state.tag || null !== state.anchor || hasContent;
+}
+
+function computeNodeLocation(state: State) {
+  
+    if (!state.result) {
+      // can't compute location because node undefined
+      return;
+    }
+  
+    let startLineNumber = state.line, // line will same is computed earlier
+      endLineNumber = -1,
+      startColumnNumber = -1,
+      endColumnNumber = -1;
+  
+    const { startPosition, endPosition } = state.result; // current word position in input string
+  
+    if (prevWordsEndPositionMap[state.line]) {
+      // for other words in a line eg 3.0.0, 1.0.0
+      const { endColumnNumber: prevWordEndColNo, endPosition: prevWordEndPosition } = prevWordsEndPositionMap[state.line];
+   
+      startColumnNumber = prevWordEndColNo + (startPosition - prevWordEndPosition)
+      endColumnNumber = startColumnNumber + (endPosition - startPosition)
+  } else {
+    // for first word of the line eg info:, openapi:, version: 
+
+    let position = startPosition,
+      arrayIndent = 0
+
+    // calculating space occupied by indent for array items
+    // have to calculate the space used in indent as it is not considered in the original algorithm
+    // security
+    //   - BasicAuth: []
+    while (position >= (startPosition - state.lineIndent)) {
+      if (state.input.charCodeAt(position) === 45) {
+        arrayIndent = startPosition - position;
+        break
+      }
+      position--;
+    }
+
+    startColumnNumber = state.lineIndent + arrayIndent
+    endColumnNumber = (endPosition - startPosition) + state.lineIndent + arrayIndent
+  }
+  // for the word ending with '\n' and ':' in a line
+  // eg 
+  //    openapi: 3.0.0 
+  //    info: 
+  //      version: 1.0.0 
+  //      title: yaml schema 
+  if (is_EOL(state.input.charCodeAt(state.position)) || // end of line \n
+    0x3A/* : */ === state.input.charCodeAt(state.position)) { // words ending with :
+    endLineNumber = state.line
+  }
+
+
+  if (state.kind === 'scalar') {
+    // only saving the information for scalar nodes, rest information is not required
+    prevWordsEndPositionMap[state.line] = {
+      endPosition: endPosition, endColumnNumber: endColumnNumber
+    }
+  }
+
+  state.result.location = {
+    line: {
+      start: startLineNumber,
+      end: endLineNumber
+    },
+    column: {
+      start: startColumnNumber,
+      end: endColumnNumber
+    }
+  }
+}
+
+function computeSequenceNodeLocation(node: ast.YAMLSequence) {
+  if (node.items.length > 0) {
+    const items = node.items;
+    const firstItem = items[0];
+    const lastItem = items[items.length - 1];
+
+    if (firstItem && lastItem) {
+      node.location = {
+        line: {
+          start: firstItem.location.line.start,
+          end: lastItem.location.line.end,
+        },
+        column: {
+          start: firstItem.location.column.start,
+          end: lastItem.location.column.end,
+        }
+      };
+    }
+  }
 }
 
 function readDocument(state:State) {
@@ -1741,6 +1906,8 @@ function readDocument(state:State) {
 
 
 function loadDocuments(input:string, options) {
+  prevWordsEndPositionMap = {};
+  blockStartPosition = {};
   input = String(input);
   options = options || {};
 
